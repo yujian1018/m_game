@@ -1,0 +1,155 @@
+
+# 客户端来源数据的默认字符集
+[client]
+default-character-set = utf8mb4
+
+
+# 数据库默认字符集
+[mysql]
+default-character-set = utf8mb4
+
+
+# 备份数据使用
+[mysqldump]
+user=root
+password=root
+
+
+# 服务端默认字符集
+[mysqld]
+port            = 27199
+max_connections = 1024 # 修改最大连接数量
+
+default-storage-engine=INNODB
+
+character-set-client-handshake = FALSE
+character-set-server=utf8mb4
+collation-server = utf8mb4_unicode_ci # 连接层默认字符集
+
+
+#修改mysql的最大允许包大小
+max_allowed_packet = 256M
+
+log-bin=mysql-bin
+log-slave-updates=ON
+
+auto-increment-increment       = 10                                          #[必须]
+auto-increment-offset          = 1
+
+binlog-do-db=dz_accuont,dz_d_en,dz_gm,dz_log_1,dz_s_en,dz_teaxs,game_d_1,game_log_1,game_s_1,game_user,ontology,ontology_d_1,ontology_log_1,ontology_s_1
+replicate-do-db=dz_accuont,dz_d_en,dz_gm,dz_log_1,dz_s_en,dz_teaxs,game_d_1,game_log_1,game_s_1,game_user,ontology,ontology_d_1,ontology_log_1,ontology_s_1
+
+
+server-id=1					#不能相同！唯一标识号，值位于1~2^32-1之间
+#log-bin=mysql-bin			#启用二进制日志文件
+#log-slave-updates=ON		#配置从库上的更新操作是否写二进制文件，需要和log-bin一起使用
+#slave-skip-errors=all 		#值为all表示让从库跳过所有错误（但不能跳过所有DDL所引起的主从错误），也可以只跳过指定的错误，如：--slave-skip-errors=1062,1053；也可以配置只跳过DDL错误 如：--slave-skip-errors=ddl_exist_errors，这等同于：--slave-skip-errors=1007,1008,1050,1051,1054,1060,1061,1068,1094,1146
+#sync_binlog=1				#值为1表示主机每次提交事务的时候把二进制日志的内容同步到磁盘上
+#auto_increment_increment=1	#
+#auto_increment_offset=1		#和auto_increment_offset一起用于主主同步，用来错开自增，防止键值冲突，所以auto_increment_increment和auto_increment_offset两者，至少要有一项值不同。
+
+#binlog-do-db=test1
+#binlog-do-db=test2
+#binlog-ignore-db=db1,db2
+#相关配置项（对于主从同步，只需要在从上配置）：replicate-do-db、replicate-ignore-db、replicate_wild_do_table和replicate_wild_ignore_table。
+
+
+
+[client]
+port = 3306
+socket = /tmp/mysql.sock
+default-character-set = utf8mb4
+ 
+[mysql]
+prompt="MySQL [\d]> "
+no-auto-rehash
+ 
+[mysqld]
+port = 3306
+socket = /tmp/mysql.sock
+ 
+basedir = /usr/local/mysql
+datadir = /data/mysql
+pid-file = /data/mysql/mysql.pid
+user = mysql
+bind-address = 0.0.0.0
+server-id = 1
+ 
+init-connect = 'SET NAMES utf8mb4'
+character-set-server = utf8mb4
+ 
+skip-name-resolve
+#skip-networking
+back_log = 300
+ 
+max_connections = 1916
+max_connect_errors = 6000
+open_files_limit = 65535
+table_open_cache = 1024
+max_allowed_packet = 500M
+binlog_cache_size = 1M
+max_heap_table_size = 8M
+tmp_table_size = 128M
+ 
+read_buffer_size = 2M
+read_rnd_buffer_size = 8M
+sort_buffer_size = 8M
+join_buffer_size = 8M
+key_buffer_size = 256M
+ 
+thread_cache_size = 64
+ 
+query_cache_type = 1
+query_cache_size = 64M
+query_cache_limit = 2M
+ 
+ft_min_word_len = 4
+ 
+log_bin = mysql-bin
+binlog_format = mixed
+expire_logs_days = 7
+ 
+log_error = /data/mysql/mysql-error.log
+slow_query_log = 1
+long_query_time = 1
+slow_query_log_file = /data/mysql/mysql-slow.log
+ 
+performance_schema = 0
+explicit_defaults_for_timestamp
+ 
+#lower_case_table_names = 1
+ 
+skip-external-locking
+ 
+default_storage_engine = InnoDB
+innodb_file_per_table = 1
+innodb_open_files = 500
+innodb_buffer_pool_size = 1024M
+innodb_write_io_threads = 4
+innodb_read_io_threads = 4
+innodb_thread_concurrency = 0
+innodb_purge_threads = 1
+innodb_flush_log_at_trx_commit = 2
+innodb_log_buffer_size = 2M
+innodb_log_file_size = 32M
+innodb_log_files_in_group = 3
+innodb_max_dirty_pages_pct = 90
+innodb_lock_wait_timeout = 120
+ 
+bulk_insert_buffer_size = 8M
+myisam_sort_buffer_size = 64M
+myisam_max_sort_file_size = 10G
+myisam_repair_threads = 1
+ 
+interactive_timeout = 28800
+wait_timeout = 28800
+ 
+[mysqldump]
+quick
+max_allowed_packet = 500M
+ 
+[myisamchk]
+key_buffer_size = 256M
+sort_buffer_size = 8M
+read_buffer = 4M
+write_buffer = 4M
