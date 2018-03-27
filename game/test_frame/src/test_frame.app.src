@@ -1,0 +1,13 @@
+{application, test_frame,
+    [
+        {description, "test framnet"},
+        {vsn, "0.0.1"},
+        {registered, []},
+        {applications, [
+            kernel,
+            stdlib
+        ]},
+        {mod, {t_app, []}},
+        {env, [
+        ]}
+    ]}.

@@ -1,0 +1,15 @@
+
+enum mail_ids{
+    MAIL_ID_VIP_ONLINE          = 1    %vip每日下发奖励邮件
+}
+
+enum mail_st{
+    MAIL_ST_DEFAULT             = 0,
+    MAIL_ST_READ                = 1,    % 阅读
+    MAIL_ST_GET                 = 2     % 领取
+}
+
+enum from_uids{
+    MAIL_ADMIN                  = -1,   % 系统管理员
+    MAIL_GM                     = -2    % 渠道管理员
+}

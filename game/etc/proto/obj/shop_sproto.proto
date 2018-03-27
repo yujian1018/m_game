@@ -1,0 +1,42 @@
+%% @doc 模块号 15
+
+%% 充值道具
+proto PROTO_SHOP_BUY_GOLD = 4
+{
+    client
+    {
+        goods_id
+    }
+    server
+    {
+        order_id
+    }
+}
+
+
+%% 付款成功
+proto PROTO_SHOP_ORDER_PAID = 5
+{
+    client
+    {
+        order_id
+    }
+    server
+    {
+        ret %1
+    }
+}
+
+
+%% 购买商城道具
+proto PROTO_SHOP_BUY_ITEM = 6
+{
+    client
+    {
+        goods_id
+    }
+    server
+    {
+        ret %1
+    }
+}

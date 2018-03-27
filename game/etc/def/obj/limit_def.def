@@ -1,0 +1,13 @@
+
+
+%% 计数器,防刷,一个时间间隔内，访问最大次数
+enum counter{
+    COUNTER_ATTR                = 10:counter_attr,
+    COUNTER_PLAYER_OP           = 10:counter_player_op,
+    COUNTER_RANK_WIN            = 2:counter_rank_win,
+    COUNTER_RANK_GOLD           = 2:counter_rank_gold,
+    COUNTER_RANK_SCORE          = 2:counter_rank_score,
+    COUNTER_RANK                = 2:counter_rank,
+    COUNTER_ALL                 = 100:counter_all,
+    COUNTER_CONFIG              = 10:counter_config
+}

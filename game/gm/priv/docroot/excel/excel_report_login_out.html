@@ -1,0 +1,217 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>报表_每日登出统计</title>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/amazeui/2.7.2/js/amazeui.min.js"></script>
+    <script src="https://cdn.bootcss.com/moment.js/2.18.1/moment.min.js"></script>
+    <script src="https://cdn.bootcss.com/moment.js/2.18.1/locale/zh-cn.js"></script>
+    <script src="https://cdn.bootcss.com/echarts/3.6.1/echarts.min.js"></script>
+    <link rel="stylesheet" href="/assets/css/excel.css">
+    <script src="../js/main.js"></script>
+    <script>
+        $(function () {
+            config.tab_name = "report_login_out";
+            excel_handler.per();
+            $(".am-tabs ul li").click(function(){
+            var id = $(this).find("a").attr("href");
+            console.log(id);
+            if(id == "#table"){
+                $("#table").show();
+                $("#table_2").hide();
+            }else{
+                $("#table").hide();
+                $("#table_2").show();
+            }
+            });
+        })
+    </script>
+</head>
+
+<body>
+<header class="am-topbar am-topbar-inverse admin-header"></header>
+<div class="tpl-page-container tpl-page-header-fixed">
+    <div class="tpl-content-wrapper" id="tpl-content-wrapper">
+        <div class="tpl-portlet-components">
+            <div class="portlet-title">
+                <div class="caption font-green bold">
+                    <span class="am-icon-code"></span> <span id="content_title">报表_每日登出统计</span>
+                </div>
+            </div>
+            <div class="tpl-block" id="tab">
+                <div id="content_tab_list" class="am-g">
+                    <div style="margin-bottom: 20px;overflow: hidden;">
+                        <div class="am-cf">
+                            <div class="am-btn-toolbar">
+                                <div class="am-btn-group am-btn-group-xs">
+                                    <button type="button" class="am-btn am-btn-primary"
+                                            onclick="excel_handler.per()"><span class="am-icon-search"></span> 查询
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="am-form" id="form_list">
+                        <div class="am-tabs" data-am-tabs>
+                            <ul class="am-tabs-nav am-nav am-nav-tabs">
+                                <li class="am-active"><a href="#table">列表</a></li>
+                                <li><a href="#table_2">所有信息</a></li>
+                            </ul>
+                        <table class="am-table am-table-hover am-table-bordered" id="table">
+                            <thead id="table_input">
+                            <tr>
+                                <th><input type="text" name="c_times" class="am-form-field" id="c_times">
+                                    <script type="application/javascript">$(function () {
+                                        var $new_date = $("#c_times").datetimepicker();
+                                        var date = time_lib.to_date(-1);
+                                        $new_date.data("DateTimePicker").date(date);
+                                    })
+                                    </script>
+                                </th>
+                                <th>所有渠道</th>
+                            </tr>
+                            </thead>
+                            <thead id="table_field">
+                            <tr>
+                                <th width="100">分类</th>
+                                <th width="100">总次数</th>
+                                <th width="100">总占比</th>
+                                <th width="160">获取项名称</th>
+                                <th width="100">次数</th>
+                                <th width="100">占比</th>
+                                <th>用户数</th>
+                            </tr>
+                            </thead>
+                            <tbody id="asset_prize" class="am-tab-panel am-active">
+                            <td rowspan="1">登陆界面</td><td rowspan="1"></td><td rowspan="1"></td><td>主界面</td><td id="2">0</td><td></td><td></td></tr>
+                            <tr><td rowspan="13">主界面</td><td rowspan="13"></td><td rowspan="13"></td><td>主界面大厅按钮</td><td id="10020">0</td><td></td><td></td></tr>
+                            <tr><td>主界面sng按钮</td><td id="10021">0</td><td></td><td></td></tr>
+                            <tr><td>快速游戏按钮</td><td id="10023">0</td><td></td><td></td></tr>
+                            <tr><td>转盘</td><td id="28">0</td><td></td><td></td></tr>
+                            <tr><td>公告按钮</td><td id="10015">0</td><td></td><td></td></tr>
+                            <tr><td>喇叭按钮</td><td id="10009">0</td><td></td><td></td></tr>
+                            <tr><td>发送喇叭</td><td id="18">0</td><td></td><td></td></tr>
+                            <tr><td>FB绑定</td><td id="10001">0</td><td></td><td></td></tr>
+                            <tr><td>vip</td><td id="10003">0</td><td></td><td></td></tr>
+                            <tr><td>bonus</td><td id="10005">0</td><td></td><td></td></tr>
+                            <tr><td>邮件</td><td id="10019">0</td><td></td><td></td></tr>
+                            <tr><td>排行</td><td id="10018">0</td><td></td><td></td></tr>
+                            <tr><td>任务</td><td id="10016">0</td><td></td><td></td></tr>
+                            <tr><td rowspan="15">战斗界面</td><td rowspan="15"></td><td rowspan="15"></td><td>点击爱心</td><td id="51">0</td><td></td><td></td></tr>
+                            <tr><td>战斗内我的头像</td><td id="52">0</td><td></td><td></td></tr>
+                            <tr><td>战斗内其他人头像</td><td id="53">0</td><td></td><td></td></tr>
+                            <tr><td>在线奖励按钮</td><td id="55">0</td><td></td><td></td></tr>
+                            <tr><td>表情按钮</td><td id="56">0</td><td></td><td></td></tr>
+                            <tr><td>普通表情</td><td id="156">0</td><td></td><td></td></tr>
+                            <tr><td>贵族表情</td><td id="157">0</td><td></td><td></td></tr>
+                            <tr><td>魔法表情</td><td id="155">0</td><td></td><td></td></tr>
+                            <tr><td>语音按钮</td><td id="57">0</td><td></td><td></td></tr>
+                            <tr><td>普通表情每一项</td><td id="158">0</td><td></td><td></td></tr>
+                            <tr><td>贵族表情每一项</td><td id="159">0</td><td></td><td></td></tr>
+                            <tr><td>自动亮牌</td><td id="58">0</td><td></td><td></td></tr>
+                            <tr><td>亮牌</td><td id="60">0</td><td></td><td></td></tr>
+                            <tr><td>在线时长奖励领取</td><td id="153">0</td><td></td><td></td></tr>
+                            <tr><td>在线任务奖励领取</td><td id="154">0</td><td></td><td></td></tr>
+                            <tr><td rowspan="12">普通场</td><td rowspan="12"></td><td rowspan="12"></td><td>普通场</td><td id="20">0</td><td></td><td></td></tr>
+                            <tr><td>高级场</td><td id="116">0</td><td></td><td></td></tr>
+                            <tr><td>2000场</td><td id="1001">0</td><td></td><td></td></tr>
+                            <tr><td>4000场</td><td id="1002">0</td><td></td><td></td></tr>
+                            <tr><td>10K场</td><td id="1003">0</td><td></td><td></td></tr>
+                            <tr><td>20K场</td><td id="1004">0</td><td></td><td></td></tr>
+                            <tr><td>100K场</td><td id="1005">0</td><td></td><td></td></tr>
+                            <tr><td>200K场</td><td id="1006">0</td><td></td><td></td></tr>
+                            <tr><td>400K场</td><td id="1007">0</td><td></td><td></td></tr>
+                            <tr><td>800K场</td><td id="1008">0</td><td></td><td></td></tr>
+                            <tr><td>1500K场</td><td id="1009">0</td><td></td><td></td></tr>
+                            <tr><td>3000K场</td><td id="1010">0</td><td></td><td></td></tr>
+                            <tr><td rowspan="9">SNG场</td><td rowspan="9"></td><td rowspan="9"></td><td>主界面</td><td id="21">0</td><td></td><td></td></tr>
+                            <tr><td>sng1房间</td><td id="117">0</td><td></td><td></td></tr>
+                            <tr><td>sng2房间</td><td id="118">0</td><td></td><td></td></tr>
+                            <tr><td>sng3房间</td><td id="119">0</td><td></td><td></td></tr>
+                            <tr><td>sng4房间</td><td id="120">0</td><td></td><td></td></tr>
+                            <tr><td>sng5房间</td><td id="121">0</td><td></td><td></td></tr>
+                            <tr><td>sng6房间</td><td id="122">0</td><td></td><td></td></tr>
+                            <tr><td>sng规则界面</td><td id="123">0</td><td></td><td></td></tr>
+                            <tr><td>战斗内排行榜</td><td id="162">0</td><td></td><td></td></tr>
+                            <tr><td rowspan="4">返回按钮</td><td rowspan="4"></td><td rowspan="4"></td><td>返回按钮的退出</td><td id="149">0</td><td></td><td></td></tr>
+                            <tr><td>返回按钮的换桌</td><td id="150">0</td><td></td><td></td></tr>
+                            <tr><td>返回按钮的站起</td><td id="151">0</td><td></td><td></td></tr>
+                            <tr><td>返回按钮的扑克牌牌型比较</td><td id="152">0</td><td></td><td></td></tr>
+                            <tr><td rowspan="3">首冲界面</td><td rowspan="3"></td><td rowspan="3"></td><td>首次弹出首冲</td><td id="15">0</td><td></td><td></td></tr>
+                            <tr><td>手动点开首冲</td><td id="10004">0</td><td></td><td></td></tr>
+                            <tr><td>救济金倒计时首冲</td><td id="160">0</td><td></td><td></td></tr>
+                            <tr><td rowspan="6">商城界面</td><td rowspan="6"></td><td rowspan="6"></td><td>主界面商城</td><td id="10022">0</td><td></td><td></td></tr>
+                            <tr><td>战斗内右上角商城</td><td id="64">0</td><td></td><td></td></tr>
+                            <tr><td>筹码不足跳转商城</td><td id="1013">0</td><td></td><td></td></tr>
+                            <tr><td>商店金币购买</td><td id="63">0</td><td></td><td></td></tr>
+                            <tr><td>月卡购买</td><td id="127">0</td><td></td><td></td></tr>
+                            <tr><td>道具购买</td><td id="128">0</td><td></td><td></td></tr>
+                            <tr><td rowspan="8">任务界面</td><td rowspan="8"></td><td rowspan="8"></td><td>任务进去的签到界面</td><td id="10017">0</td><td></td><td></td></tr>
+                            <tr><td>每日任务</td><td id="27">0</td><td></td><td></td></tr>
+                            <tr><td>每周任务</td><td id="139">0</td><td></td><td></td></tr>
+                            <tr><td>成就任务</td><td id="140">0</td><td></td><td></td></tr>
+                            <tr><td>钻石领奖</td><td id="141">0</td><td></td><td></td></tr>
+                            <tr><td>任务领奖每日</td><td id="142">0</td><td></td><td></td></tr>
+                            <tr><td>任务领奖每周</td><td id="143">0</td><td></td><td></td></tr>
+                            <tr><td>任务领奖成就</td><td id="144">0</td><td></td><td></td></tr>
+                            <tr><td rowspan="7">设置</td><td rowspan="7"></td><td rowspan="7"></td><td>主界面</td><td id="10011">0</td><td></td><td></td></tr>
+                            <tr><td>背包按钮</td><td id="10012">0</td><td></td><td></td></tr>
+                            <tr><td>设置界面登出</td><td id="129">0</td><td></td><td></td></tr>
+                            <tr><td>分享按钮</td><td id="10013">0</td><td></td><td></td></tr>
+                            <tr><td>分享到facebook</td><td id="137">0</td><td></td><td></td></tr>
+                            <tr><td>反馈界面</td><td id="25">0</td><td></td><td></td></tr>
+                            <tr><td>帮助界面</td><td id="131">0</td><td></td><td></td></tr>
+                            <tr><td rowspan="7">头像按钮</td><td rowspan="7"></td><td rowspan="7"></td><td>头像界面成就</td><td id="106">0</td><td></td><td></td></tr>
+                            <tr><td>头像界面背包</td><td id="107">0</td><td></td><td></td></tr>
+                            <tr><td>头像界面普通场信息</td><td id="13">0</td><td></td><td></td></tr>
+                            <tr><td>头像界面sng场信息</td><td id="105">0</td><td></td><td></td></tr>
+                            <tr><td>修改名字</td><td id="102">0</td><td></td><td></td></tr>
+                            <tr><td>更换头像界面</td><td id="101">0</td><td></td><td></td></tr>
+                            <tr><td>头像按钮</td><td id="10002">0</td><td></td><td></td></tr>
+                            <tr><td rowspan="3">vip按钮</td><td rowspan="3"></td><td rowspan="3"></td><td>我的vip界面</td><td id="14">0</td><td></td><td></td></tr>
+                            <tr><td>vip特权界面</td><td id="108">0</td><td></td><td></td></tr>
+                            <tr><td>vip界面的点击购买按钮</td><td id="109">0</td><td></td><td></td></tr>
+                            <tr><td rowspan="5">救济金按钮</td><td rowspan="5"></td><td rowspan="5"></td><td>主界面</td><td id="16">0</td><td></td><td></td></tr>
+                            <tr><td>第一次救济金</td><td id="110">0</td><td></td><td></td></tr>
+                            <tr><td>第二次救济金</td><td id="111">0</td><td></td><td></td></tr>
+                            <tr><td>第三次救济金</td><td id="112">0</td><td></td><td></td></tr>
+                            <tr><td>第四次救济金</td><td id="113">0</td><td></td><td></td></tr>
+                            <tr><td rowspan="2">奖励</td><td rowspan="2"></td><td rowspan="2"></td><td>新手引导</td><td id="10008">0</td><td></td><td></td></tr>
+                            <tr><td>在线时长奖励领取</td><td id="10007">0</td><td></td><td></td></tr>
+                            <tr><td rowspan="3">背包</td><td rowspan="3"></td><td rowspan="3"></td><td>背包领取奖励按钮</td><td id="135">0</td><td></td><td></td></tr>
+                            <tr><td>背包里发送喇叭</td><td id="133">0</td><td></td><td></td></tr>
+                            <tr><td>背包里进入sng信息界面</td><td id="134">0</td><td></td><td></td></tr>
+                            <tr><td rowspan="4">排行榜</td><td rowspan="4"></td><td rowspan="4"></td><td>周赢榜</td><td id="29">0</td><td></td><td></td></tr>
+                            <tr><td>大师分榜</td><td id="145">0</td><td></td><td></td></tr>
+                            <tr><td>金币榜</td><td id="146">0</td><td></td><td></td></tr>
+                            <tr><td>榜单详细玩家信息</td><td id="147">0</td><td></td><td></td></tr>
+                            <tr><td rowspan="2">邮件</td><td rowspan="2"></td><td rowspan="2"></td><td>未读邮件</td><td id="30">0</td><td></td><td></td></tr>
+                            <tr><td>已读邮件</td><td id="148">0</td><td></td><td></td></tr>
+                            </tbody>
+                        </table>
+                        <table class="am-table am-table-hover am-table-bordered" id="table_2" style="display:none;">
+                            <tr><th width="160">获取项名称</th><th width="100">次数</th><th width="100">占比</th><th>用户数</th></tr>
+                            <tbody class="table_2_tbody">
+                                <tr></tr>
+                            </tbody>
+                        </table>
+                        </div>
+                        <input type="hidden" name="form_list_sort_key" value="">
+                        <input type="hidden" name="form_list_sort" value="0">
+                        <input type="hidden" name="form_list_c_page" id="c_page" value="1">
+                    </form>
+                    <div>
+                        下线次数:<p id="asset_count_prize"></p>
+                        下线界面:<p id="asset_count_cost" style="color:red;"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer></footer>
+</body>
+
+</html>

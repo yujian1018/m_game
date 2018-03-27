@@ -1,0 +1,28 @@
+%% @doc 模块号 2
+
+%% 推送跑马灯信息
+proto PROTO_PUSH_NOTICE = 2
+{
+    client
+    {
+    }
+    server
+    {
+        type,   %1:跑马灯 2:系统信息 3:滚动公告 11:喇叭
+        msg    %[content::跑马灯内容]
+    }
+    %% ERR_CODE
+}
+
+%% 喇叭
+proto PROTO_CHAT_HORN = 4
+{
+    client
+    {
+        msg
+    }
+    server
+    {
+        ret %% 返回0表示登录成功
+    }
+}

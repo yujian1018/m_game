@@ -1,0 +1,93 @@
+%% @doc 模块号 12
+
+%NICK                = 1,    %昵称
+%SEX                 = 2,    %性别 0女 1男
+%GOLD                = 3,    %金币
+%ICON                = 4,    %头像
+%DIAMOND             = 5,    %货币A
+%LV                  = 6,    %等级
+%EXP                 = 7,    %经验值
+%SIGN                = 9,    %签名
+%ADDRESS             = 14,   %地址
+%CLIENT_SETTING      = 15,   %客户端设置
+%ACTIVE_POINT        = 17,   %活跃点数
+%ACTIVE_REWARDS      = 18,   %活跃点数领奖
+%VIP_LV              = 20,   %vip等级
+%SNG_SCORE           = 21,   %sng积分
+%VIP_EXP             = 22,   %vip经验值
+%ALL_RMB             = 101,  %消费总金额（分）
+
+%other_attr_vo NICK, ICON, SEX, GOLD, DIAMOND, LV, EXP, SIGN, SNG_SCORE, VIP_LV
+
+
+%% 上线推送属性信息
+proto PROTO_ATTR_ONLINE_SEND = 1
+{
+    client
+    {
+    }
+    server
+    {
+        data %[[k::属性id,v::属性值]]
+    }
+    %% ERR_CODE
+}
+
+
+%% 更新属性，下发信息给客户端
+proto PROTO_ATTR_UPDATE = 2
+{
+    client
+    {
+    }
+    server
+    {
+        data %[[k::属性id,v::属性值]]
+    }
+    %% ERR_CODE
+}
+
+
+%% 客户端更新属性。
+proto PROTO_ATTR_CLIENT_UPDATE = 3
+{
+    client
+    {
+        data    %[[k1,v1],[k2,v2]]
+    }
+    server
+    {
+        ret     %1:表示更新成功
+    }
+    %% ERR_CODE
+}
+
+
+%% 获取一个玩家vo结构
+proto PROTO_ATTR_VO = 5
+{
+    client
+    {
+        uid
+    }
+    server
+    {
+        attr_vo     %
+    }
+    %% ERR_CODE
+}
+
+
+%% 领取活跃度奖励
+proto PROTO_ATTR_GET_ACTIVE_REWARDS = 11
+{
+    client
+    {
+        rewards_index %领取第几个奖励
+    }
+    server
+    {
+        ret     %1表示成功
+    }
+}
+

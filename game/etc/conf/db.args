@@ -1,0 +1,4 @@
+
+-pa ex/db/ebin
+
+-s db_app start

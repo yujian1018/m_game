@@ -1,0 +1,13 @@
+{application, obj,
+    [
+        {description, ""},
+        {vsn, "1"},
+        {registered, []},
+        {applications, [
+            kernel,
+            stdlib
+        ]},
+        {mod, {obj_app, []}},
+        {env, [
+        ]}
+    ]}.

@@ -1,0 +1,12 @@
+
+attr_handler:atom
+online_handler:atom
+item_handler:atom
+sys_handler:atom
+mail_handler:atom
+shop_handler:atom
+turntable_handler:atom
+task_handler:atom
+buff_handler:atom
+
+

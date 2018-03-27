@@ -1,0 +1,55 @@
+%% @doc 模块号 5
+
+
+%% 上线下发信息
+proto PROTO_MAIL_ONLINE_DATA = 1
+{
+    client
+    {
+    }
+    server
+    {
+        mails:list<{
+            mail_id,        % 邮件id
+            from_id,        % from id  1:系统管理员 2......
+            s_times,        % 邮件创建时间
+            title,          % 标题
+            content,        % 内容
+            attachment,     % 附件
+            state           % 邮件状态 0:未读  1:已读
+        }>
+    }
+}
+
+%% 更新,新邮件发送
+proto PROTO_MAIL_UPDATE = 2
+{
+    client
+    {
+    }
+    server
+    {
+        mail_id,        % 邮件id
+        from_id,        % from id  -1:系统管理员 -2...... > 0 表示玩家
+        s_times,        % 邮件创建时间
+        title,          % 标题
+        content,        % 内容
+        attachment,     % 附件
+        status          % 邮件状态 0:未读  1:已读 2:已经领取
+    }
+}
+
+
+%% 邮件已读，删除
+proto PROTO_MAIL_SET = 3
+{
+    client
+    {
+        mail_id,
+        state       % 1:已读 2:删除
+    }
+    server
+    {
+        code        % 200
+    }
+}

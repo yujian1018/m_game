@@ -1,0 +1,6 @@
+
+enum all_type
+{
+    RANK_GOLD       = 1,        %货币排行
+    RANK_LV         = 2         %等级排行
+}

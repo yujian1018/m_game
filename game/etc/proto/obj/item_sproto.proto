@@ -1,0 +1,47 @@
+%% @doc 模块号 13
+
+
+%% 上线推送道具信息
+proto PROTO_ONLINE_ITEM = 1
+{
+    client
+    {
+    }
+    server
+    {
+        data %[[item_id,num]]
+    }
+    %% ERR_CODE
+}
+
+
+
+
+%% 更新道具信息
+proto PROTO_UPDATE_ITEM = 2
+{
+    client
+    {
+    }
+    server
+    {
+        data %[[item_id,num]]
+    }
+    %% ERR_CODE
+}
+
+
+%% 使用道具
+proto PROTO_USE_ITEM = 4
+{
+    client
+    {
+        item_id,
+        num         %目前可以默认成1个
+    }
+    server
+    {
+        ret %1表示成功
+    }
+    %% ERR_CODE
+}

@@ -1,0 +1,31 @@
+%% @doc 模块号 10
+%% 根据表名获取配置表信息
+
+
+%% 获取配置表md5码信息
+proto PROTO_GET_CONFIG_MD5 = 1
+{
+    client
+    {
+
+    }
+    server
+    {
+        md5     %{obj, [{table_name, md5}, {table_name, md5}]}
+    }
+}
+
+%% 获取配置表信息
+proto PROTO_GET_CONFIG = 2
+{
+    client
+    {
+        table_name      %表名
+    }
+    server
+    {
+        table_name,     %表名
+        data     %[[id,v1,v2,v3], ...]
+    }
+}
+

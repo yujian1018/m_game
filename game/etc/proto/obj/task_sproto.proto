@@ -1,0 +1,67 @@
+%% @doc 模块号 14
+
+%% 上线下发信息
+proto PROTO_TASK_ONLINE_DATA = 1
+{
+    client
+    {
+    }
+    server
+    {
+        chain_list %% [[chain_id, index, prize_len, progress]|...]
+    }
+}
+
+%% 服务端更新数据
+proto PROTO_TASK_UPDATE = 2
+{
+    client
+    {
+    }
+    server
+    {
+        chain_list %% [[chain_id, index, prize_len,progress]|...]
+    }
+}
+
+%% 客户端更新任务信息
+proto PROTO_TASK_CLIENT_UPDATE = 3
+{
+    client
+    {
+        chain_id,
+        index,
+        progress
+    }
+    server
+    {
+        ret
+    }
+}
+
+%% 领取奖励
+proto PROTO_TASK_RECEIVE = 4
+{
+    client
+    {
+        chain_id,
+        index
+    }
+    server
+    {
+        ret %1表示成功
+    }
+}
+
+%% 放弃某个任务
+proto PROTO_TASK_GIVE_UP = 5
+{
+    client
+    {
+        chain_id
+    }
+    server
+    {
+        ret %1表示成功
+    }
+}

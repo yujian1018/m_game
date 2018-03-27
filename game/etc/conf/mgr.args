@@ -1,0 +1,3 @@
+-pa apps/mgr/ebin
+
+-s mgr_app start

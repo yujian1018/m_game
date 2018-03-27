@@ -1,0 +1,3 @@
+-pa apps/push/ebin
+
+-s push_app start

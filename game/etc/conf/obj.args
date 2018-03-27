@@ -1,0 +1,4 @@
+
+-pa obj/ebin/ ex/db/ebin
+
+-s obj_app start

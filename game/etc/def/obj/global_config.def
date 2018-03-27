@@ -1,0 +1,5 @@
+timeout:atom
+max_player:atom
+turntable:atom
+attr:atom
+active_rewards:atom

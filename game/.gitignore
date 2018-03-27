@@ -1,0 +1,13 @@
+# Created by .ignore support plugin (hsz.mobi)
+.svn
+.idea
+.rebar
+ebin
+/log
+auto
+erl_crash.dump
+game_*.tar.gz
+apps/http/priv/docroot/api
+obj/priv/docroot/api
+im/priv/docroot/api
+obj/test_frame

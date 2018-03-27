@@ -1,0 +1,14 @@
+%% @doc 模块号 0
+
+%% 心跳
+proto PROTO_SYS_TICK = 1
+{
+    client
+    {
+
+    }
+    server
+    {
+
+    }
+}

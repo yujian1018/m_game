@@ -1,0 +1,25 @@
+
+%% 协议 module file protonum
+%% 1:上线时推送 2:在游戏中推送 3:客户端更新
+
+all_proto[
+    game,     %json||game||binary||test
+    test
+]
+{
+
+    err_code_proto          err_code_sproto         0,      %错误码,心跳
+    sys_proto               sys_sproto              1,      %系统功能
+    chat_proto              chat_sproto             2,      %聊天
+    rank_proto              rank_sproto             3,      %排行榜
+    active_proto            active_sproto           4,      %活动
+    mail_proto              mail_sproto             5,      %邮件
+    task_proto              task_sproto             6,      %任务
+    config_proto            config_sproto           10,     %配置信息
+
+    login_proto             login_sproto            11,     %登录
+    shop_proto              shop_sproto             12,     %商城
+    attr_proto              attr_sproto             13,     %属性
+    item_proto              item_sproto             14     %道具
+
+}

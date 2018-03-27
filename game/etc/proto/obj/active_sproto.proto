@@ -1,0 +1,42 @@
+%% @doc 模块号 20
+
+
+%% 上线下发信息
+proto PROTO_ACTIVE_SEND_DATA = 1
+{
+    client
+    {
+    }
+    server
+    {
+        kv_list %% [[active_id::活动表id, progress::进度, gift_ids::已领gift_id]...]
+    }
+}
+
+%% 领取礼包时,下发信息
+proto PROTO_ACTIVE_UPDATE_DATA = 2
+{
+    client
+    {
+    }
+    server
+    {
+        active_id,
+        progress,
+        gift_id
+    }
+}
+
+%% 领取礼包
+proto PROTO_ACTIVE_GET_PRIZE = 4
+{
+    client
+    {
+        active_id,
+        gift_id
+    }
+    server
+    {
+        ret %1
+    }
+}

@@ -1,0 +1,53 @@
+%%%-------------------------------------------------------------------
+%%% @author yujian
+%%% @doc 错误码
+%%%-------------------------------------------------------------------
+
+%% 10001-20001 obj错误码
+
+
+enum err_code_obj
+{
+%% login
+    ERR_CREATE_ROLE_FAIL                = 10001,    % 创建角色失败
+
+
+%% attr
+    ERR_ATTR_NICK_NAME_SIZE             = 10101,    % 昵称最多只能输入5个汉字
+    ERR_ATTR_SIGNATURE_SIZE             = 10102,    % 个人签名长度超过限制
+    ERR_ATTR_NICK_NOT_NULL              = 10106,    % 昵称不能为空
+    ERR_ATTR_NICK_SAME                  = 10107,    % 昵称不能重复
+    ERR_ATTR_ACTIVE_REWARDS             = 10109,    %
+    ERR_ATTR_NOT_ACTIVE_POINT           = 10110,    %
+    ERR_ATTR_NO_KEY                     = 10111,    % key值不存在
+
+
+%% rank
+    ERR_RANK_NO_TYPE                    = 10201,    % 没有该排行榜
+
+
+%% sign
+    ERR_SIGN_ID                         = 10301,    % 签到日期错误
+    ERR_SIGN_FILL_UP_ID                 = 10302,    % 补签日期错误
+    ERR_SIGN_ADDUP_ID                   = 10303,    % 累计签到id错误
+    ERR_SIGN_COUNT_NOT_ENOUGH           = 10304,    % 签到次数不足
+    ERR_SIGN_SIGNED                     = 10305,    % 已经签到
+
+
+%% online_time
+    ERR_NOT_ONLINES_TIMES               = 10401,    % 时间不足，无法领取在线奖励
+
+
+%% mail
+    ERR_MAIL_NO_ID                      = 10501,    % 邮件id不存在
+    ERR_MAIL_STATUS_ERR                 = 10502,    % 邮件状态不正确
+
+%% active
+    ERR_ACTIVE_NO_ID                    = 10601,     % 活动还未开始
+    ERR_ACTIVE_NO_GIFT_ID               = 10602,     % 没有活动礼包
+    ERR_ACTIVE_EXIT_GIFT_ID             = 10603,     % 该礼包已经领取
+    ERR_ACTIVE_NOT_NUM                  = 10604,      % 条件不足，无法领取礼包
+
+%% shop
+    ERR_SHOP_BUY_DAILY                  = 10701    %商店
+}

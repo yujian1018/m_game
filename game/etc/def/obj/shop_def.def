@@ -1,0 +1,13 @@
+
+enum all_type{
+    SHOP_GOLD  = 1,   %充值金币
+    SHOP_VIP   = 2,   %购买周卡
+    SHOP_DAILY = 3,   %购买每日道具
+    SHOP_HORN  = 4,   %购买喇叭
+    SHOP_ITEM  = 5    %实物道具
+}
+
+
+enum shop_id{
+    SHOP_DAILY_RECHAGE_ID   = 30001     %每日充值，每天重置
+}

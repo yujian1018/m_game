@@ -1,0 +1,141 @@
+%% @doc 模块号 1
+
+%% 同步时间
+proto PROTO_SERVER_TIMER = 1
+{
+    client
+    {
+    }
+    server
+    {
+        time    %当前服务器时间戳
+    }
+}
+
+
+%% ping
+proto PROTO_SERVER_PING = 2
+{
+    client
+    {
+
+    }
+    server
+    {
+        m_times     %服务器当前毫秒级时间戳
+    }
+}
+
+
+%% 拉取客户端配置信息
+proto PROTO_GET_CLIENT_SETTING = 3
+{
+    client
+    {
+
+    }
+    server
+    {
+        setting     %配置信息
+    }
+}
+
+
+%% 设置客户端配置信息
+proto PROTO_SET_CLIENT_SETTING = 4
+{
+    client
+    {
+        setting %配置信息
+    }
+    server
+    {
+        ret     %0表示设置成功
+    }
+}
+
+
+
+%% 游戏服数据打点
+proto PROTO_LOG_LOGIN = 5
+{
+    client
+    {
+        op      % [6, udid] || num
+    }
+    server
+    {
+    }
+}
+
+%% 界面打点
+proto PROTO_OPEN_LAYER = 6
+{
+    client
+    {
+        layer_id,
+        button_id
+    }
+    server
+    {
+    }
+}
+
+
+%% 小红点提示
+proto PROTO_SEND_TIPS = 11
+{
+    client
+    {
+
+    }
+    server
+    {
+        tips:list<{
+            id      %1:邮件提示 2：留言提示 3：签到提示
+        }>
+    }
+}
+
+
+%% 通知客户端，重置每日活动
+proto PROTO_SEND_RESET_TIME = 12
+{
+    client
+    {
+
+    }
+    server
+    {
+
+    }
+}
+
+
+%% 分享日志
+proto LOG_ALL_SHARE = 21
+{
+    client
+    {
+        platform_type,  %分享到什么地方,渠道号
+        css_type,       %分享样式 1:分享游戏 2:分享截图
+        st              %状态 1：点击分享按钮 2：分享成功
+    }
+    server
+    {
+    }
+}
+
+%% 邀请日志
+proto LOG_ALL_INVITE = 22
+{
+    client
+    {
+        platform_type,  %分享到什么地方,渠道号
+        css_type,       %分享样式 1:邀请游戏 2:邀请截图
+        st              %状态 1：点击邀请按钮 2：邀请成功
+    }
+    server
+    {
+    }
+}

@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>登陆</title>
+    <meta name="description" content="登陆">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="icon" type="image/png" href="assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="登陆"/>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/amazeui/2.7.2/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="assets/css/app.css">
+</head>
+
+<body>
+
+<div class="am-g myapp-login">
+    <div class="myapp-login-logo-block  tpl-login-max">
+        <div class="myapp-login-logo-text">
+            <div class="myapp-login-logo-text">
+                <span> Login</span> <i class="am-icon-skyatlas"></i>
+            </div>
+        </div>
+
+        <div class="am-u-sm-10 login-am-center">
+            <form class="am-form" id="form_login">
+                <fieldset>
+                    <div class="am-form-group">
+                        <input type="text" class="" id="account" minlength="1" placeholder="输入帐号" required>
+                    </div>
+                    <div class="am-form-group">
+                        <input type="password" class="" id="password" minlength="1" placeholder="输入密码" required>
+                    </div>
+                    <p>
+                        <button type="submit" class="am-btn am-btn-default">登录</button>
+                    </p>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/amazeui/2.7.2/js/amazeui.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.18.1/moment.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.18.1/locale/zh-cn.js"></script>
+<script src="js/main.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var account, password;
+        var action = url.parse_url("act");
+        if (action == "exit") {
+            cookie.exit();
+        } else {
+            account = cookie.get("account");
+            password = cookie.get("password");
+            console.log(account, password);
+            if (!(account == null || account == "" || account == undefined || password == null || password == "" || password == undefined)) {
+                account_handler.login(account, password);
+            }
+        }
+
+        $('#form_login').validator({
+            submit: function () {
+                var formValidity = this.isFormValid();
+                if (formValidity) {
+                    account = $("#account").val();
+                    password = $("#password").val();
+                    account_handler.login(account, password);
+                } else {
+                    console.log('验证不成功')
+                }
+                return false;
+            }
+        });
+
+    })
+</script>
+</body>
+
+</html>

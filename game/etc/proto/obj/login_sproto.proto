@@ -1,0 +1,56 @@
+%% @doc 模块号 11
+
+%% 登录,token+uid判断是否可以进入游戏
+proto PROTO_LOGIN = 1
+{
+    client
+    {
+        uin,
+        token
+    }
+    server
+    {
+        role_list %% BaseInfoList
+    }
+}
+
+
+%% 动态表发送完成
+proto PROTO_DATA_OVER = 4
+{
+    client
+    {
+
+    }
+    server
+    {
+        ret %% 返回1
+    }
+}
+
+
+%% 玩家下线
+proto PROTO_OFFLINE = 5
+{
+    client
+    {
+    }
+    server
+    {
+    }
+}
+
+
+%% 断线重连
+proto PROTO_RECONNECT = 6
+{
+    client
+    {
+        uin,
+        token
+    }
+    server
+    {
+        ret %% 返回1表示登录成功
+    }
+}

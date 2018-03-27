@@ -1,0 +1,15 @@
+%% @doc 模块号 3
+
+%% 客户端拉取排行榜信息
+proto PROTO_RANK = 4
+{
+    client
+    {
+        type        %1:财富排行 2:等级排行 3:实力排行
+    }
+    server
+    {
+        rank_list, %%[attr_vo, v]
+        my_rank
+    }
+}

@@ -1,0 +1,22 @@
+
+enum attr_id{
+    UID                 = 0,
+    NICK                = 1,    %昵称
+    SEX                 = 2,    %性别 0女 1男
+    GOLD                = 3,    %金币
+    ICON                = 4,    %头像
+    DIAMOND             = 5,    %货币A
+    LV                  = 6,    %等级
+    EXP                 = 7,    %经验值
+    SIGN                = 9,    %签名
+    GMT_OFFSET          = 12,   %时区偏移量
+    ADDRESS             = 14,   %地址
+    CLIENT_SETTING      = 15,   %客户端设置
+    ACTIVE_POINT        = 17,   %活跃点数
+    ACTIVE_REWARDS      = 18,   %活跃点数领奖
+    VIP_LV              = 20,   %vip等级
+    VIP_EXP             = 22,   %vip经验值
+    C_TIMES             = 23,   %创建时间
+    ALL_RMB             = 101,  %充值总额
+    REFRESH_TIMES       = 105  %刷新时间
+}
