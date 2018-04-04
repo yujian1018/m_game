@@ -1,0 +1,15 @@
+{application, http,
+    [
+        {description, "web服务器"},
+        {vsn, "1"},
+        {registered, []},
+        {applications, [
+            kernel,
+            stdlib
+        ]},
+        {mod, {http_app, []}},
+        {env, [
+            {is_wx_jsapi_sign, false},
+            {file_url, undefined}
+        ]}
+    ]}.

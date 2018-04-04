@@ -1,0 +1,117 @@
+%%游客登录
+proto GUEST = 1
+{
+    client
+    {
+        date,           % 时间戳精确到s
+        sign,           % 签名
+        udid,           % 设备号
+        channel_id,     % 渠道编号
+        gmt_offset      % 时差
+    }
+    server
+    {
+        code,           % 200表示成功
+        uin,            % 帐号唯一编号
+        token           % 登陆用token
+    }
+}
+
+%%账户登录
+proto ACCOUNT = 2
+{
+    client
+    {
+        date,           % 时间戳精确到s
+        sign,           % 签名
+        udid,           % 设备号
+        channel_id,     % 渠道编号
+        gmt_offset,     % 时差
+        account_name,   % 账户
+        account_pwd     % 密码
+    }
+    server
+    {
+        code,           % 200表示成功
+        uin,            % 帐号唯一编号
+        token           % 登陆用token
+    }
+}
+
+%%SDK登录
+proto SDK = 3
+{
+    client
+    {
+        date,           % 时间戳精确到s
+        sign,           % 签名
+        udid,           % 设备号
+        channel_id,     % 渠道编号
+        gmt_offset,     % 时差
+        open_id,        % 第三方用户唯一编号
+        open_token      % 访问第三方服务的token
+    }
+    server
+    {
+        code,           % 200表示成功
+        uin,            % 帐号唯一编号
+        token           % 登陆用token
+    }
+}
+
+
+%% 账户绑定
+proto ACCOUNT_BIND = 4
+{
+    client
+    {
+        date,           % 时间戳精确到s
+        sign,           % 签名
+        udid,           % 设备号
+        channel_id,     % 渠道编号
+        gmt_offset,     % 时差
+        open_id         % 第三方用户唯一编号
+    }
+    server
+    {
+        code,           % 200:表示成功, 3004：该fb账户，已经绑定了账户  3005：该fb账户，已经登陆过游戏
+        uin,            % 帐号唯一编号
+        token           % 登陆用token
+    }
+}
+
+
+%% 判断该第三方账户是否已经绑定过
+proto ACCOUNT_IS_BIND = 5
+{
+    client
+    {
+        date,           % 时间戳精确到s
+        sign,           % 签名
+        udid,           % 设备号
+        channel_id,     % 渠道编号
+        open_id         % 第三方用户唯一编号
+    }
+    server
+    {
+        code            % 200:表示没有  3004：该fb账户，已经绑定了账户  3005：该fb账户，已经登陆过游戏
+    }
+}
+
+
+
+%% 获取该账户中角色信息
+proto ACCOUNT_ROLE_INFO = 6
+{
+    client
+    {
+        date,           % 时间戳精确到s
+        sign,           % 签名
+        udid,           % 设备号
+        login_type      % 1:游客 2:账户 3:sdk
+    }
+    server
+    {
+        code    % 200
+    }
+}

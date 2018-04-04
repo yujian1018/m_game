@@ -24,9 +24,9 @@
 #+sbt db
 
 
--kernel inet_dist_listen_min 26100
--kernel inet_dist_listen_max 26200
--epmd_port 26100
--epmd "epmd -port 26100 -daemon"
+-kernel inet_dist_listen_min 22000
+-kernel inet_dist_listen_max 22222
+-epmd_port 22222
+-epmd "epmd -port 22222 -daemon"
 
 -pa libs/cache/ebin libs/common/ebin libs/network/ebin

@@ -1,0 +1,17 @@
+
+%% 协议 module file protonum
+
+
+all_proto[
+    %test,   %test client to server proto
+    game     %app||game
+]
+{
+
+    err_code_proto  err_code_sproto     0,     %错误码,心跳
+    sys_proto       sys_sproto          1,     %系统信息
+
+    login_proto     login_sproto        11,    %登录
+    chat_proto      chat_sproto         12     %留言系统
+}
+

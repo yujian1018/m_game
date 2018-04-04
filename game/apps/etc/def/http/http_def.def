@@ -1,0 +1,6 @@
+
+enum all_login_type{
+    LOGIN_GUEST     = 1,        %游客登陆
+    LOGIN_ACCOUNT   = 2,        %账户登陆
+    LOGIN_SDK       = 3         %sdk登陆
+}

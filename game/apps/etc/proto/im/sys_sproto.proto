@@ -1,0 +1,27 @@
+%% @doc 模块号 1
+
+%% 同步时间
+proto PROTO_SERVER_TIMER = 1
+{
+    client
+    {
+
+    }
+    server
+    {
+        times       %服务器当前时间戳
+    }
+}
+
+%% 获取上传是的token令牌
+proto PROTO_SYS_GET_UPLOAD_TOKEN = 2
+{
+    client
+    {
+
+    }
+    server
+    {
+        token       %token令牌
+    }
+}

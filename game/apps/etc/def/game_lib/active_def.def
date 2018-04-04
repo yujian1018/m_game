@@ -1,0 +1,41 @@
+
+enum all_activity_ids{
+    ACTIVE_RECHAGE_DOUBLE       = 101001,       %首充翻倍
+    ACTIVE_RECHARGE_PER         = 102001,       %充值返利活动
+    ACTIVE_RECHARGE_TOTAL       = 103001,       %累计充值
+    ACTIVE_RECHARGE_GIFT        = 104001,       %首充礼包
+    ACTIVE_DAILY_GIFT           = 105001,       %每日充值礼包
+    ACTIVE_LV_GIFT              = 201001        %等级礼包
+
+}
+
+enum time_type{
+    ACTIVE_DATE_DEADLINE       = 0,    %时限活动
+    ACTIVE_DATE_ONCE           = 1,    %一次性活动
+    ACTIVE_DATE_DAILY          = 2     %每日活动
+}
+
+
+enum active_type{
+    ACTIVE_TYPE_PRIZE           = 1,    %奖励活动
+    ACTIVE_TYPE_ADDUP           = 2,    %累计数据，获得奖励
+    ACTIVE_TYPE_LIMIT           = 3,    %条件，获得奖励
+    ACTIVE_TYPE_EX_ADDUP        = 101   %特殊情况，累计充值活动
+
+}
+
+enum prize_type{
+    ACTIVE_PRIZE_TYPE_SERVER    = 0,    %服务端
+    ACTIVE_PRIZE_TYPE_CLIENT    = 1     %客户端
+}
+
+
+enum all_gift_id{
+    ACTIVE_GIFT_FIRST_RECHARGE_GIFT = 104001,        %首充礼包
+    ACTIVE_GIFT_LV_1                = 201001         %等级礼包1
+}
+
+enum event_st{
+    EVENT_START             = 1,    %活动开始
+    EVENT_STOP              = 0     %活动结束
+}

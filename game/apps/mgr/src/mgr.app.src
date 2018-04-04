@@ -1,0 +1,13 @@
+{application, mgr,
+    [
+        {description, "game node manager"},
+        {vsn, "1"},
+        {registered, []},
+        {applications, [
+            kernel,
+            stdlib
+        ]},
+        {mod, {mgr_app, []}},
+        {env, [
+        ]}
+    ]}.

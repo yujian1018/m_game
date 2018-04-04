@@ -1,0 +1,40 @@
+%%SDK支付回调
+proto PAY_SDK = 1
+{
+    client
+    {
+        date,           % 时间戳精确到s
+        sign,           % 签名
+        channel_id,     % 渠道编号
+        recharge_id,    % 支付方式
+        order_id,       % 游戏订单号
+        out_order,      % 第三方平台订单号
+        order_num,      % sdk平台订单号
+        amount          % 金额
+    }
+    server
+    {
+        code             % 200,其他平台按照要求返回格式
+    }
+}
+
+
+%%支付失败回调
+proto PAY_FAIL = 2
+{
+    client
+    {
+        date,           % 时间戳精确到s
+        sign,           % 签名
+        channel_id,     % 渠道编号
+        recharge_id,    % 支付方式
+        order_id,       % 游戏订单号
+        state,          % 支付状态 4:用户取消支付
+        msg             % app_store:2,3,4,5,6
+
+    }
+    server
+    {
+        code             % 200
+    }
+}

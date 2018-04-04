@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>UMEDITOR 完整demo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link href="themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="third-party/jquery.min.js"></script>
+    <script type="text/javascript" src="third-party/template.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="umeditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="umeditor.min.js"></script>
+    <script type="text/javascript" src="lang/zh-cn/zh-cn.js"></script>
+</head>
+<body>
+<h1>UMEDITOR 完整demo</h1>
+
+<!--style给定宽度可以影响编辑器的最终宽度-->
+<script type="text/plain" id="myEditor" style="width:1000px;max-height:240px;height:240px;overflow: auto" name="aaa"></script>
+
+<div class="clear"></div>
+<div id="btns">
+    <table>
+        <tr>
+            <td>
+                <button class="btn" onclick="get()">获得内容</button>&nbsp;
+                <button class="btn" onclick="set()">写入内容</button>&nbsp;
+            </td>
+        </tr>
+    </table>
+</div>
+<script type="text/javascript">
+    var um = UM.getEditor('myEditor',
+        {toolbar: ['undo redo | bold italic underline |forecolor backcolor | removeformat |', 'insertorderedlist insertunorderedlist | cleardoc paragraph | fontsize', '| justifyleft justifycenter justifyright justifyjustify |', 'link unlink', '| horizontal preview fullscreen']}
+    );
+
+    function get() {
+        var html = UM.getEditor('myEditor').getContent();
+        var txt = UM.getEditor('myEditor').getContentTxt()
+        console.log(html, txt);
+    }
+
+    function set() {
+        UM.getEditor('myEditor').setContent('<p>hello</p>');
+    }
+</script>
+
+</body>
+</html>

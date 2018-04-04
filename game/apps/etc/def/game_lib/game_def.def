@@ -1,0 +1,23 @@
+
+proto_id:atom           % 当前的模块号协议号
+uin:atom                % 账户唯一编号
+uid:atom                % 角色唯一编号
+channel_id:atom         % 渠道号
+login_state:atom        % 登陆状态
+tick:atom               % 心跳
+login_times:atom        % 登陆时间
+
+%% 登陆状态
+enum login_st{
+    LOGIN_CONNECT_INIT          = 0,    % 0默认设置
+    LOGIN_DONE                  = 1,    % 表示登录校验完成
+    LOGIN_CREATE_ROLE           = 2,
+    LOGIN_INIT_DONE             = 3,    % 表示数据初始化完成，可以收发数据，开放所有功能
+    PLAYER_TERMINATE            = 4,    % 玩家下线
+    LOGIN_ING                   = 5     % 特殊状态，玩家正在登陆中
+}
+
+enum global_config{
+    CHANNEL_ALL         = -999              %所有渠道
+}
+

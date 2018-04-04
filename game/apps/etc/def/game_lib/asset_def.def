@@ -1,0 +1,23 @@
+enum asset_type{
+    ATTR    = 1,    %属性
+    ITEM    = 2,    %道具
+    SKIN    = 3,    %皮肤
+    EIP     = 4,    %表情
+    ITEM_BUFF = 5,   %道具buff
+    CARD    = 7     %月卡
+}
+
+enum asset_op{
+    PRIZE   = 1,
+    COST    = 0
+}
+
+enum privilege_type{
+    PRIVILEGE_TYPE_1    = 1,    %特权期间资源+
+    PRIVILEGE_TYPE_2    = 2,    %特权期间享受的额外功能
+    PRIVILEGE_TYPE_3    = 3,    %特权期间享受的额外功能次数
+    PRIVILEGE_TYPE_4    = 4,    %特权期间每日奖励
+    PRIVILEGE_TYPE_5    = 5,    %特权升级奖励信息
+    PRIVILEGE_TYPE_6    = 6,    %特权期间每日强制奖励金币上限
+    PRIVILEGE_TYPE_7    = 7     %提取某样数值累计
+}

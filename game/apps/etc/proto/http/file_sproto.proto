@@ -1,0 +1,29 @@
+%% 上传缓存文件
+proto UPLOAD = 1
+{
+    client
+    {
+        date,           % 时间戳精确到s
+        sign            % 签名
+    }
+    server
+    {
+        code,           % 200
+        url             % 文件链接
+    }
+}
+
+%% 上传持久化文件
+proto UPLOAD_AOF = 2
+{
+    client
+    {
+        date,           % 时间戳精确到s
+        sign            % 签名
+    }
+    server
+    {
+        code,           % 200
+        url             % 文件链接
+    }
+}

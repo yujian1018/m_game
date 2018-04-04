@@ -1,0 +1,24 @@
+
+%% @doc 服务器事件
+enum event{
+    EVENT_LVUP              = 1:event_lvup,             %升級事件
+    EVENT_LVUP_VIP          = 2:event_lvup_vip,         %vip升级事件
+    EVENT_CREATE_ROLE       = 3:event_create_role,      %创角事件
+
+    EVENT_ZERO_REFRESH      = 11:event_zero_refresh,    %每日0点刷新事件
+    EVENT_DAY_REFRESH       = 13:event_day_refresh,     %每日6点刷新事件
+    EVENT_MONTH_REFRESH     = 12:event_month_refresh   %每月刷新事件
+}
+
+enum event_type{
+    EVENT_GLOBAL        = 0,    %事件
+    EVENT_ACTIVE        = 1     %活动
+}
+
+enum mod_op{
+    OP_DEFAULT  = 0,
+    OP_ADD      = 1,
+    OP_DEL      = 2,
+    OP_UPDATE   = 3,
+    OP_NULL     = 4
+}

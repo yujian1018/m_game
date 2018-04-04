@@ -1,0 +1,25 @@
+%%%-------------------------------------------------------------------
+%%% @author yujian
+%%% @doc 错误码
+%%%-------------------------------------------------------------------
+
+%% 1001-2000 http
+
+
+enum err_code
+{
+    ERR_ACCOUNT_SDK_ERR                 = 1001,     %账户登陆，平台验证失败
+    ERR_ACCOUNT_SDK_FAIL                = 1002,     %账户登陆，平台验证网络超时
+    ERR_SDK_ERR                         = 1003,     %sdk登陆，平台验证失败
+    ERR_SDK_FAIL                        = 1004,     %sdk登陆，平台验证网络超时
+    ERR_SDK_PAY_ERR                     = 1005,     %支付，平台验证失败
+    ERR_SDK_PAY_FAIL                    = 1006,     %支付，平台验证网络超时
+    ERR_SDK_SIGN_ERR                    = 1007,     %第三方签名失败
+    ERR_BAND_SDK                        = 1008,     % 该游客账户，已经绑定了fb账户
+
+    ERR_ACCOUNT_EXIT                    = 1101,     %账户已经存在
+    ERR_BAND_ACCOUNT                    = 1102,     % 该fb账户，已经绑定了账户
+    ERR_ACCOUNT_LOGIN                   = 1103      % 该fb账户，已经登陆过游戏
+
+}
+

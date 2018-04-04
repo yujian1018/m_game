@@ -1,0 +1,90 @@
+%% 游戏公告
+proto BULLETIN = 1
+{
+    client
+    {
+        channel_id      % 渠道编号，只出现该渠道的公告
+    }
+    server
+    {
+        json:list<{
+            title,      % 公告标题
+            icon,       % 公告图标
+            content     % 公告内容
+        }>
+    }
+}
+
+
+%% 是否强更，获取服务器信息
+proto GET_SERVER = 2
+{
+    client
+    {
+        date,           % 时间戳精确到s
+        sign,           % 签名
+        channel_id,     % 渠道编号
+        version         % 客户端版本号
+    }
+    server
+    {
+        code,           % 200:成功 6:该版本需要强更
+        url,            % 游戏服务器地址
+        port,           % 游戏服务器端口
+        switchs,        % 开关 "1,2,3":功能1,功能2,功能3被关闭了
+        ip              % 客户端ip地址
+    }
+}
+
+%% 意见反馈
+proto FEEDBACK = 3
+{
+    client
+    {
+        date,           % 时间戳精确到s
+        sign,           % 签名
+        udid,           % 设备号
+        channel_id,     % 渠道编号
+        version,        % 客户端版本号
+        msg,            % 玩家意见反馈
+        contact         % 玩家联系方式
+    }
+    server
+    {
+        code            % 200表示成功
+    }
+}
+
+
+%% 数据打点，在未连接游戏服务器之前，统计信息
+proto LOGIN_LOG = 4
+{
+    client
+    {
+        date,           % 时间戳精确到s
+        sign,           % 签名
+        udid,           % 设备号
+        channel_id,     % 渠道编号
+        num             % 打点阶段
+    }
+    server
+    {
+        code             % 200||其他
+    }
+}
+
+
+%% 微信签名
+proto WX_JSAPI_SIGN = 12
+{
+    client
+    {
+        date,           % 时间戳精确到s
+        sign            % 签名
+    }
+    server
+    {
+        code,           % 200
+        sign
+    }
+}

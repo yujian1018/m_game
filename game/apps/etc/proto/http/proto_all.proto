@@ -1,0 +1,10 @@
+all_proto[
+    json
+]
+{
+    login_proto     login_sproto      login   1,        %% 登陆
+    pay_cb_proto    pay_cb_sproto     pay_cb  2,        %% 支付回调
+    api_proto       api_sproto        api     3,        %% 公用接口
+    file_proto      file_sproto       file    4         %% 文件处理
+}
+

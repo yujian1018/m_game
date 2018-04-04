@@ -1,0 +1,17 @@
+{application, db,
+    [
+        {description, "db server manager"},
+        {vsn, "1"},
+        {registered, []},
+        {applications, [
+            kernel,
+            stdlib
+        ]},
+        {mod, {db_app, []}},
+        {env, [
+            {is_mnesia, false},
+            {is_mysql, true},
+            {is_redis, false},
+            {mnesia_dir, "./mnesia_db"}
+        ]}
+    ]}.

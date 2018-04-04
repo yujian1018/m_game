@@ -1,0 +1,101 @@
+%% @doc 模块号 12
+
+%% 单对单
+proto PROTO_CHAT_TO_USER = 1
+{
+    client
+    {
+        to_uid,         %关注好友的uid
+        msg_type,       %1文本 2语音 3图片
+        msg,            %聊天內容,最大1024字节
+        attach          %附加信息，最大256字节,字符串
+    }
+    server
+    {
+        ret             %1表示成功
+    }
+    %% ERR_CODE
+}
+
+%% 聊天室
+proto PROTO_CHAT_TO_ROOM = 2
+{
+    client
+    {
+        room_id,        %
+        msg_type,       %1文本 2语音 3图片
+        msg,            %聊天內容,最大1024字节
+        attach          %附加信息，最大256字节
+    }
+    server
+    {
+        ret             %1表示成功
+    }
+    %% ERR_CODE
+}
+
+%% 世界
+proto PROTO_CHAT_TO_WORLD = 3
+{
+    client
+    {
+        msg_type,       %1文本 2语音 3图片
+        msg,            %聊天內容,最大1024字节
+        attach          %附加信息，最大256字节
+    }
+    server
+    {
+        ret             %1表示成功
+    }
+    %% ERR_CODE
+}
+
+%% 单对单聊天
+proto PROTO_CHAT_ABCAST_TO_USER = 11
+{
+    client
+    {
+
+    }
+    server
+    {
+        msg_type,       %1文本 2语音 3图片
+        msg,            %聊天內容
+        attach          %附加信息，最大256字节
+    }
+    %% ERR_CODE
+}
+
+
+
+%% 聊天室广播
+proto PROTO_CHAT_ABCAST_TO_ROOM = 12
+{
+    client
+    {
+
+    }
+    server
+    {
+        msg_type,       %1文本 2语音 3图片
+        msg,            %聊天內容
+        attach          %附加信息，最大256字节
+    }
+    %% ERR_CODE
+}
+
+%% 世界广播
+proto PROTO_CHAT_ABCAST_TO_WORLD = 13
+{
+    client
+    {
+
+    }
+    server
+    {
+        msg_type,       %1文本 2语音 3图片
+        msg,            %聊天內容
+        attach          %附加信息，最大256字节
+    }
+    %% ERR_CODE
+}

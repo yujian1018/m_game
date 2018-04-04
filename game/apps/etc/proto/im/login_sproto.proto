@@ -1,0 +1,34 @@
+%% @doc 模块号 11
+
+%% 登录,uid、token判断是否可以进入游戏
+proto PROTO_LOGIN = 1
+{
+    client
+    {
+        app_id, %binary
+        im_id   %binary
+    }
+    server
+    {
+        ret %% 返回角色信息
+    }
+    %% ERR_CODE
+    %% 5 参数中拥有非法字符
+    %% 51 不是自然数
+    %% 52 不是整数
+}
+
+%% 登陆完成
+proto PROTO_DATA_OVER = 4
+{
+    client
+    {
+
+    }
+    server
+    {
+        ret %% 返回1
+    }
+}
+
+

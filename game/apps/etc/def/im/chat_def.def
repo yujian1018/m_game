@@ -1,0 +1,7 @@
+
+
+enum msg_type{
+    text       = 1,    %文本消息
+    audio      = 2,    %语音消息
+    pic        = 3     %图片消息
+}
