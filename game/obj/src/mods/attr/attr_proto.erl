@@ -7,7 +7,7 @@
 -module(attr_proto).
 
 -include("obj_pub.hrl").
--include("../../load/load_attr.hrl").
+-include("../../db/load_attr.hrl").
 
 -export([
     handle_info/2,

@@ -12,21 +12,19 @@
       <sourceFolder url="file://$MODULE_DIR$/apps/http/include" type="erlang-include" />
       <sourceFolder url="file://$MODULE_DIR$/apps/mgr/include" type="erlang-include" />
       <sourceFolder url="file://$MODULE_DIR$/apps/push/include" type="erlang-include" />
-      <sourceFolder url="file://$MODULE_DIR$/ex/global/include" type="erlang-include" />
       <sourceFolder url="file://$MODULE_DIR$/libs/cache/include" type="erlang-include" />
       <sourceFolder url="file://$MODULE_DIR$/libs/common/include" type="erlang-include" />
       <sourceFolder url="file://$MODULE_DIR$/libs/db/include" type="erlang-include" />
       <sourceFolder url="file://$MODULE_DIR$/libs/network/include" type="erlang-include" />
       <sourceFolder url="file://$MODULE_DIR$/obj/include" type="erlang-include" />
-      <sourceFolder url="file://$MODULE_DIR$/im/include" type="erlang-include" />
       <sourceFolder url="file://$MODULE_DIR$/obj/src/auto/db" type="erlang-include" />
       <sourceFolder url="file://$MODULE_DIR$/gm/include" type="erlang-include" />
+      <sourceFolder url="file://$MODULE_DIR$/apps/global/include" type="erlang-include" />
       <excludeFolder url="file://$MODULE_DIR$/apps/http/ebin" />
       <excludeFolder url="file://$MODULE_DIR$/apps/mgr/ebin" />
       <excludeFolder url="file://$MODULE_DIR$/apps/push/ebin" />
       <excludeFolder url="file://$MODULE_DIR$/libs/cache/ebin" />
       <excludeFolder url="file://$MODULE_DIR$/libs/common/ebin" />
-      <excludeFolder url="file://$MODULE_DIR$/libs/db/ebin" />
       <excludeFolder url="file://$MODULE_DIR$/libs/network/ebin" />
       <excludeFolder url="file://$MODULE_DIR$/obj/ebin" />
     </content>

@@ -19,4 +19,5 @@ all:
 	(cd libs/common;make all)
 	(cd apps/game_lib;make all)
 	(cd apps/http;make all)
+	(cd apps/im;make all)
 	(cd obj;make all)

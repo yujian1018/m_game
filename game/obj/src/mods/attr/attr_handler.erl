@@ -8,7 +8,7 @@
 
 -include("player_behaviour.hrl").
 -include("obj_pub.hrl").
--include("../../load/load_attr.hrl").
+-include("../../db/load_attr.hrl").
 
 -export([
     send_to_client_key/0,

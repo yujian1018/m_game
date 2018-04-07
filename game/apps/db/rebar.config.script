@@ -1,4 +1,4 @@
-{ok, [Terms]} = file:consult("../project.config"),
+{ok, [Terms]} = file:consult("../../project.config"),
 {d, process_call_mod, Mod} = lists:keyfind('process_call_mod', 2, Terms),
 IsDebug =
     case lists:keyfind('debug', 2, Terms) of

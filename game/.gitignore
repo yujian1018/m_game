@@ -5,9 +5,11 @@
 ebin
 /log
 auto
+deps/
 erl_crash.dump
 game_*.tar.gz
 apps/http/priv/docroot/api
+apps/im/priv/docroot/api
 obj/priv/docroot/api
 im/priv/docroot/api
 obj/test_frame
