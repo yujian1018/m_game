@@ -31,7 +31,6 @@ load_cache() ->
     [
         #cache_mate{
             name = ?tab_name_1,
-            record = #global_cost{},
             fields = record_info(fields, ?tab_name_1),
             rewrite = fun rewrite_cost/1,
             verify = fun verify_cost/1,
@@ -39,7 +38,6 @@ load_cache() ->
         },
         #cache_mate{
             name = ?tab_name_2,
-            record = #global_prize{},
             fields = record_info(fields, ?tab_name_2),
             rewrite = fun rewrite_prize/1,
             verify = fun verify_prize/1,

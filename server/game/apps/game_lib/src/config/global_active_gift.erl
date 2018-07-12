@@ -32,7 +32,6 @@ load_cache() ->
         
         #cache_mate{
             name = ?tab_name,
-            record = #global_active_gift{},
             fields = record_info(fields, ?tab_name),
             group = [#global_active_gift.active_id],
             verify = fun verify_gift/1,

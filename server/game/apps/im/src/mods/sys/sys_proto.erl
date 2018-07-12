@@ -18,4 +18,4 @@ handle_info(?PROTO_SYS_GET_UPLOAD_TOKEN, []) ->
 
 
 handle_info(_Cmd, _RawData) ->
-    ?LOG("handle_info no match ProtoId:~p~n Data:~p~n", [_Cmd, _RawData]).
+    ?INFO("handle_info no match ProtoId:~p~n Data:~p~n", [_Cmd, _RawData]).

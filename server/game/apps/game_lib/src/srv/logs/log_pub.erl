@@ -40,15 +40,15 @@ save_data(LogType, Data) ->
         
         LogType =:= log_role_op ->
             Sql = lists:foldl(fun(I, Acc) ->
-                ISql = erl_string:sql(I),
+                ISql = erl_bin:sql(I),
                 if Acc =:= <<>> -> ISql;true -> <<Acc/binary, ",", ISql/binary>> end end, <<>>, Data),
             ?rpc_db_call(db_mysql, el, [<<"insert into log_role_op (uid, op, times) values ">>, Sql, <<";">>]);
         
         true ->
             TabNameBin = list_to_binary(atom_to_list(LogType)),
             Sql = lists:foldl(fun(I, Acc) ->
-                if Acc =:= <<>> -> erl_string:sql(I);true ->
-                    <<Acc/binary, ",", (erl_string:sql(I))/binary>> end end, <<>>, Data),
+                if Acc =:= <<>> -> erl_bin:sql(I);true ->
+                    <<Acc/binary, ",", (erl_bin:sql(I))/binary>> end end, <<>>, Data),
             ?rpc_db_call(db_mysql, el, [<<"INSERT INTO `", TabNameBin/binary, "` (`player_id`, `type_id`, `v`, `times`) VALUES">>, Sql, <<";">>])
     end.
 
@@ -56,16 +56,16 @@ save_data(LogType, Data) ->
 %% 服务器人数
 s_count(Num, ServerId) ->
     CTimes = integer_to_binary(erl_time:now()),
-    log_s_count ! erl_string:sql([CTimes, (integer_to_binary(ServerId)), (integer_to_binary(Num))]).
+    log_s_count ! erl_bin:sql([CTimes, (integer_to_binary(ServerId)), (integer_to_binary(Num))]).
 
 
 %% 上下线
 login_op(Uid, Type, V) ->
-    log_login_op ! erl_string:sql([(integer_to_binary(Uid)), Type, V, (integer_to_binary(erl_time:now()))]).
+    log_login_op ! erl_bin:sql([(integer_to_binary(Uid)), Type, V, (integer_to_binary(erl_time:now()))]).
 
 
 log_role_op(Uid, Op) ->
-    log_role_op ! erl_string:sql([(integer_to_binary(Uid)), ?encode(Op)]).
+    log_role_op ! erl_bin:sql([(integer_to_binary(Uid)), ?encode(Op)]).
 
 
 %% 资源

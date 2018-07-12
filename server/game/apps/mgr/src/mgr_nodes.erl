@@ -32,7 +32,7 @@ handle_info({tick, Node, Args}, State) ->
     {noreply, State};
 
 handle_info({nodedown, Node}, State) ->
-    ?PRINT("node_down:~p~n", [Node]),
+    ?INFO("node_down:~p~n", [Node]),
     cache_server_version:node_del(Node),
     {noreply, State};
 

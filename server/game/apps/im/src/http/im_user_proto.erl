@@ -25,5 +25,5 @@ handle_client(_Req, <<"create">>, AppsId, Arg) ->
 %%    <<"ok">>;
 
 handle_client(_Req, Cmd, AppsId, Arg) ->
-    ?PRINT("handle_info no match ProtoId:~p...arg:~p~n", [Cmd, [AppsId, Arg]]),
+    ?INFO("handle_info no match ProtoId:~p...arg:~p~n", [Cmd, [AppsId, Arg]]),
     ?return_err(?ERR_ARG_ERROR).

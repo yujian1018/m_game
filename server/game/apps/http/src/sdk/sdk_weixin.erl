@@ -109,7 +109,7 @@ arg_create(ProName, GameId, Uid, OrderId, TotleFee, UserIp, WxOpenId) ->
     List = [
         {<<"appid">>, list_to_binary(?APP_ID)},
         {<<"mch_id">>, list_to_binary(?MCH_ID)},
-        {<<"nonce_str">>, list_to_binary(erl_string:uuid())},
+        {<<"nonce_str">>, list_to_binary(erl_bin:uuid())},
         {<<"body">>, ProName},
         {<<"attach">>, <<GameId/binary, ",", Uid/binary, ",", OrderId/binary>>},
         {<<"out_trade_no">>, OrderId},
@@ -127,7 +127,7 @@ arg_query(OderId) ->
     List = [
         {<<"appid">>, list_to_binary(?APP_ID)},
         {<<"mch_id">>, list_to_binary(?MCH_ID)},
-        {<<"nonce_str">>, list_to_binary(erl_string:uuid())},
+        {<<"nonce_str">>, list_to_binary(erl_bin:uuid())},
         {<<"out_trade_no">>, OderId}
     ],
     Sign = to_sign(List, ?KEY),
@@ -137,7 +137,7 @@ to_html(PrePayId) ->
     List = [
         {<<"appId">>, list_to_binary(?APP_ID)},
         {<<"timeStamp">>, integer_to_binary(erl_time:now())},
-        {<<"nonceStr">>, list_to_binary(erl_string:uuid())},
+        {<<"nonceStr">>, list_to_binary(erl_bin:uuid())},
         {<<"package">>, <<"prepay_id=", PrePayId/binary>>},
         {<<"signType">>, <<"MD5">>}
     ],

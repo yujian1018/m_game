@@ -34,13 +34,11 @@ load_cache() ->
     [
         #cache_mate{
             name = ?tab_name_1,
-            record = #?tab_name_1{},
             fields = record_info(fields, ?tab_name_1),
             group = [#?tab_name_1.chain_id]
         },
         #cache_mate{
             name = ?tab_name_2,
-            record = #?tab_name_2{},
             fields = record_info(fields, ?tab_name_2)
         }
     ].

@@ -19,7 +19,7 @@
 -define(URL, "https://api.jpush.cn/v3/push").
 
 push(Uid, Alert) ->
-    Cid = erl_string:uuid_bin(),
+    Cid = erl_bin:uuid_bin(),
     Post = <<"{
 	\"platform\":\"all\",
 	\"audience\":{

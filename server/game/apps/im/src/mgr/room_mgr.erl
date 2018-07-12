@@ -95,7 +95,7 @@ init([]) ->
 handle_call({create, Tid, Members}, _From, State) ->
     NewTid =
         if
-            Tid == <<>> -> erl_string:uuid_bin();
+            Tid == <<>> -> erl_bin:uuid_bin();
             true -> Tid
         end,
     ets:insert(?tab_name_1, #room_mgr{chat_id = NewTid, member = Members}),

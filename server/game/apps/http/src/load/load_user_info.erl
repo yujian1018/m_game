@@ -18,7 +18,7 @@
 
 %% 游客，账户注册
 create_info(Uin, ChannelId, GMTOfftime) ->
-    Token = erl_string:uuid_bin(),
+    Token = erl_bin:uuid_bin(),
     ?rpc_db_call(db_mysql, ea, [<<"insert into user_info(uin, token, gmt_offset) values (",
         (integer_to_binary(Uin))/binary, ", '",
         Token/binary, "', ",
@@ -28,7 +28,7 @@ create_info(Uin, ChannelId, GMTOfftime) ->
 
 %% sdk注册
 create_info(Uin, ChannelId, GMTOfftime, {Nick, Sex, HeadImg, Address}) ->
-    Token = erl_string:uuid_bin(),
+    Token = erl_bin:uuid_bin(),
     ?rpc_db_call(db_mysql, ea, [<<"insert into user_info(uin, token, gmt_offset, nick, sex, head_img, address) values (",
         (integer_to_binary(Uin))/binary, ", '",
         Token/binary, "', ",
@@ -58,7 +58,7 @@ reset_info(Uin, Nick, Sex, HeadImg, Address) ->
 
 %% 更新token
 reset_token(Uin, ChannelId) ->
-    Token = erl_string:uuid_bin(),
+    Token = erl_bin:uuid_bin(),
     UinBin = integer_to_binary(Uin),
     [OldToken, _] = ?rpc_db_call(db_mysql, ea, [<<"SELECT token FROM user_info WHERE uin = ",
         UinBin/binary, ";INSERT INTO user_info(uin, token) VALUES (",

@@ -25,7 +25,6 @@ load_cache() ->
     [
         #cache_mate{
             name = ?tab_name1,
-            record = #err_code_cn{},
             fields = record_info(fields, ?tab_name1)
         }
     ].

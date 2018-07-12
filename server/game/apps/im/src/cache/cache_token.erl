@@ -27,7 +27,6 @@ load_cache() ->
     [
         #cache_mate{
             name = ?tab_name_1,
-            record = #cache_token{},
             type = mysql,
             fields = record_info(fields, ?tab_name_1),
             all = [#cache_token.key],
@@ -37,7 +36,7 @@ load_cache() ->
 
 
 set(AppsId, Iid) ->
-    Token = erl_string:uuid_bin(),
+    Token = erl_bin:uuid_bin(),
     ets:insert(?tab_name_1, #cache_token{key = {AppsId, Iid}, token = Token, c_times = erl_time:now()}),
     Token.
 

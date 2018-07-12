@@ -35,7 +35,6 @@ load_cache() ->
     [
         #cache_mate{
             name = ?tab_name,
-            record = #global_cron{},
             fields = record_info(fields, ?tab_name),
             group = [#global_cron.type],
             rewrite = fun rewrite/1,

@@ -39,7 +39,7 @@ login(Arg) ->
                     OpenId2 = list_can:get_arg("error_msg", Obj),
                     {OpenId2, <<>>, {<<>>, <<"1">>, <<>>, <<>>}};
                 _Other ->
-                    ?PRINT("error:~p~n", [_Other]),
+                    ?INFO("error:~p~n", [_Other]),
                     ?return_err(?ERR_ACCOUNT_SDK_ERR, <<"账户登陆，平台验证失败"/utf8>>)
             end;
         _Other ->

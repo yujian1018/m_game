@@ -45,10 +45,12 @@ case ${APP_NAME} in
         echo ${VERSION};;
     'init'|'install'|'rebuild')
         rm -rf apps/*/ebin/*.beam
-        rm -rf apps/*/.rebar/
+        rm -rf apps/*/.rebar3/
         rm -rf lib/*/ebin
-        rm -rf lib/*/.rebar/
+        rm -rf lib/*/.rebar3/
         (cd lib/common;make def)
+        (cd apps/global;make all)
+        (cd apps/gm;make all)
         (cd apps/game_lib;make all)
         (cd apps/http;make all)
         (cd apps/im;make all)

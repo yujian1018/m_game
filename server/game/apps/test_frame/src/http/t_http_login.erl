@@ -27,7 +27,7 @@ login() ->
             ArgBin = cow_qs:qs([
                 {<<"date">>, DateBin},
                 {<<"sign">>, Sign},
-                {<<"udid">>, erl_string:uuid_bin()},
+                {<<"udid">>, erl_bin:uuid_bin()},
                 {<<"channel_id">>, ?CHANNEL_ID},
                 {<<"gmt_offset">>, integer_to_binary(3600 * 8)}
             ]),

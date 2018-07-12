@@ -6,5 +6,5 @@ all:
 
 def:
 	rm -rf src/auto
-	escript ../libs/parse_tool/t_def ../etc/def/test_frame src/auto/def/
+	escript ../../lib/parse_tool/t_def ../etc/def/test_frame src/auto/def/
 

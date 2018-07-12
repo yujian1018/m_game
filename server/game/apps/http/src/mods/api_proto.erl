@@ -62,5 +62,5 @@ handle_client(_Req, ?WX_JSAPI_SIGN, _Arg) ->
     sdk_weixin_sign:jsapi_sign();
 
 handle_client(_Req, Cmd, Arg) ->
-    ?PRINT("handle_info no match ProtoId:~p...arg:~p~n", [Cmd, Arg]),
+    ?INFO("handle_info no match ProtoId:~p...arg:~p~n", [Cmd, Arg]),
     ?return_err(?ERR_ARG_ERROR).

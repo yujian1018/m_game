@@ -32,7 +32,7 @@ init(Action, _Req) ->
     {ok, #{}}.
 
 websocket_handle({pong, _}, _Req, State) ->
-    ?LOG("websocket_handle/3 arg:~p~n", [_Req]),
+    ?INFO("websocket_handle/3 arg:~p~n", [_Req]),
     {ok, State};
 
 websocket_handle({binary, _Msg}, _Req, State) ->
@@ -68,7 +68,7 @@ websocket_handle({text, Msg}, _Req, State) ->
     end.
 
 websocket_info(start, _Req, State) ->
-    ?LOG("start arg:~p~n", [_Req]),
+    ?INFO("start arg:~p~n", [_Req]),
     {ok, State};
 
 websocket_info({timeout, _Ref, ?timeout_s_30}, _Req, State) ->
@@ -97,7 +97,7 @@ websocket_info(InfoMsg, _Req, State) ->
 
 
 websocket_terminate(_Reason, _Req, _State) ->
-    ?LOG("Websocket closed in state ~p wih reason ~p~n", [_State, _Reason]),
+    ?INFO("Websocket closed in state ~p wih reason ~p~n", [_State, _Reason]),
     ok.
 
 

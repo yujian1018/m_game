@@ -42,7 +42,7 @@ save_data(LogType, Data) ->
 
 log_db_device(<<>>, _Uin, _DevicePf, _Ip, _Now) -> ok;
 log_db_device(<<"win32">>, _Uin, _DevicePf, _Ip, _Now) -> ok;
-log_db_device(Udid, Uin, DevicePf, Ip, Now) -> log_db_device ! erl_string:sql([Udid, Uin, DevicePf, Ip, Now]).
+log_db_device(Udid, Uin, DevicePf, Ip, Now) -> log_db_device ! erl_bin:sql([Udid, Uin, DevicePf, Ip, Now]).
 
 
 log_feedback(Uid, Udid, Ip, ChannelId, Version, Msg, Contact) ->

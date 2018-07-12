@@ -28,7 +28,6 @@ load_cache() ->
     [
         #cache_mate{
             name = ?tab_name_1,
-            record = #?tab_name_1{},
             fields = record_info(fields, ?tab_name_1)
         }
     ].

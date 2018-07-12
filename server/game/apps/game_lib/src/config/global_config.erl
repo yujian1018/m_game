@@ -24,7 +24,6 @@ load_cache() ->
     [
         #cache_mate{
             name = ?tab_name,
-            record = #global_config{},
             fields = record_info(fields, ?tab_name),
             rewrite = fun rewrite/1
         }

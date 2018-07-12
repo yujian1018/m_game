@@ -54,5 +54,5 @@ handle_client(_Req, <<"kick">>, _AppsId, Arg) ->
     end;
 
 handle_client(_Req, Cmd, _AppsId, Arg) ->
-    ?PRINT("handle_info no match ProtoId:~p...arg:~p~n", [Cmd, Arg]),
+    ?INFO("handle_info no match ProtoId:~p...arg:~p~n", [Cmd, Arg]),
     ?return_err(?ERR_ARG_ERROR).

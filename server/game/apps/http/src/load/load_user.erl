@@ -23,7 +23,7 @@
 create_guest(ChannelId, Udid, DevicePf, IpBin, GMTOfftime) ->
     if
         Udid =:= <<"win32">> -> %% 特殊情况，一直创建新用户
-            new_guest(ChannelId, erl_string:uuid_bin(), DevicePf, IpBin, GMTOfftime);
+            new_guest(ChannelId, erl_bin:uuid_bin(), DevicePf, IpBin, GMTOfftime);
         true ->
             case ?rpc_db_call(db_mysql, ea, [<<"select uin, ban_times from user where udid='", Udid/binary, "' and login_type = 1 limit 0, 1;">>]) of
                 [[Uin, BanTimes]] ->

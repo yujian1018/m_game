@@ -18,7 +18,7 @@
 
 
 init({_Socket}) ->
-%%    ?PRINT("start player process:~p~n", [[self(), Socket]]),
+%%    ?INFO("start player process:~p~n", [[self(), Socket]]),
     ?put_new(?tick, 0),
     ?put_new(?login_state, ?LOGIN_CONNECT_INIT),
     erlang:start_timer(?TIMEOUT_S_30, self(), ?timeout_s_30),
@@ -63,7 +63,7 @@ handle_call({stop, ErrCode, Msg}, _From, State) ->
     {stop, normal, ok, State};
 
 handle_call({call, Mod, _FromNode, _FromModule, Msg}, _From, State) ->
-%%    ?PRINT("handle_call mod 111:~p~n", [{mod, Mod, _FromNode, _FromModule, Msg}]),
+%%    ?INFO("handle_call mod 111:~p~n", [{mod, Mod, _FromNode, _FromModule, Msg}]),
     LoginState = erlang:get(?login_state),
     Ret =
         if
@@ -78,11 +78,11 @@ handle_call({call, Mod, _FromNode, _FromModule, Msg}, _From, State) ->
             true ->
                 error
         end,
-%%    ?PRINT("handle_call call:~p~n", [Ret]),
+%%    ?INFO("handle_call call:~p~n", [Ret]),
     {reply, Ret, State};
 
 handle_call(_Msg, _From, State) ->
-%%    ?PRINT("handle_call:~p~n", [[self(), _Msg, _From, State]]),
+%%    ?INFO("handle_call:~p~n", [[self(), _Msg, _From, State]]),
     {reply, ok, State}.
 
 handle_cast(_Msg, State) ->
@@ -121,7 +121,7 @@ handle_info({tcp, _Socket, RecvBin}, State) ->
 
 %% @doc 心跳
 handle_info({timeout, _TimerRef, ?timeout_s_30}, State) ->
-%%    ?PRINT("tcp timeout tick:~p~n", [[self(), State]]),
+%%    ?INFO("tcp timeout tick:~p~n", [[self(), State]]),
     Tick = erlang:get(?tick),
     erlang:start_timer(?TIMEOUT_S_30, self(), ?timeout_s_30),
     if
@@ -146,11 +146,11 @@ handle_info({?send_to_client, Msg}, State) ->
     {noreply, State};
 
 handle_info(stop, State) ->
-%%    ?PRINT("handle_info 111:~p~n", [{stop, State, self()}]),
+%%    ?INFO("handle_info 111:~p~n", [{stop, State, self()}]),
     {stop, normal, State};
 
 handle_info({stop, ErrCode}, State) ->
-%%    ?PRINT("handle_info 111:~p~n", [{stop, State, self()}]),
+%%    ?INFO("handle_info 111:~p~n", [{stop, State, self()}]),
 %%    err_code_proto:err_code(State, 0, {throw, ErrCode}),
     ?tcp_send([0, 0, ErrCode]),
     {stop, normal, State};
@@ -160,7 +160,7 @@ handle_info({error, ErrCode}, State) ->
     {noreply, State};
 
 handle_info({mod, Mod, From, FromModule, Msg}, State) ->
-%%    ?PRINT("handle_info 111:~p~n", [{mod, Mod, From, FromModule, Msg}]),
+%%    ?INFO("handle_info 111:~p~n", [{mod, Mod, From, FromModule, Msg}]),
     LoginState = erlang:get(?login_state),
     if
         LoginState =:= ?LOGIN_INIT_DONE ->
@@ -174,11 +174,11 @@ handle_info({mod, Mod, From, FromModule, Msg}, State) ->
         true ->
             ok
     end,
-%%    ?PRINT("handle_info 222:~p~n", [NewState]),
+%%    ?INFO("handle_info 222:~p~n", [NewState]),
     {noreply, State};
 
 handle_info({timeout, _TimerRef, {mod, Mod, From, FromModule, Msg}}, State) ->
-%%    ?PRINT("timer callback:~p~n", [{mod, Mod, From, FromModule, Msg}]),
+%%    ?INFO("timer callback:~p~n", [{mod, Mod, From, FromModule, Msg}]),
     LoginState = erlang:get(?login_state),
     if
         LoginState =:= ?LOGIN_INIT_DONE ->
@@ -195,7 +195,7 @@ handle_info({timeout, _TimerRef, {mod, Mod, From, FromModule, Msg}}, State) ->
     {noreply, State};
 
 handle_info(_Info, State) ->
-%%    ?PRINT("handle_info: ~w~nState:~p~n", [_Info, State]),
+%%    ?INFO("handle_info: ~w~nState:~p~n", [_Info, State]),
     {noreply, State}.
 
 

@@ -35,7 +35,6 @@ load_cache() ->
     [
         #cache_mate{
             name = ?tab_name,
-            record = #global_active{},
             fields = record_info(fields, ?tab_name),
             group = [#global_active.time_type, #global_active.prize_type, #global_active.progress_type],
             priority = 10,
