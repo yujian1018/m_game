@@ -46,7 +46,7 @@ handle_info(?PROTO_TASK_GIVE_UP, ChainId) ->
     ?tcp_send(guide_sproto:encode(?PROTO_TASK_GIVE_UP, 1));
 
 handle_info(_Cmd, _RawData) ->
-    ?LOG("handle_info no match ProtoId:~p~n Data:~p~n", [_Cmd, _RawData]).
+    ?INFO("handle_info no match ProtoId:~p~n Data:~p~n", [_Cmd, _RawData]).
 
 
 online_send(Data) ->

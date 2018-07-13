@@ -22,4 +22,4 @@ handle_info(?PROTO_RANK, [Type]) ->
     ?tcp_send(rank_sproto:encode(?PROTO_RANK, ?decode(Pack)));
 
 handle_info(_Cmd, _RawData) ->
-    ?LOG("handle_info no match ProtoId:~p~n Data:~p~n", [_Cmd, _RawData]).
+    ?INFO("handle_info no match ProtoId:~p~n Data:~p~n", [_Cmd, _RawData]).

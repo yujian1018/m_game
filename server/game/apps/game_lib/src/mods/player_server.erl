@@ -42,7 +42,7 @@ handle_call(?ERR_OTHER_LOGIN, _From, State) ->
     ?tcp_send([0, 0, ?ERR_OTHER_LOGIN]),
     Tick = erlang:get(?tick),
     LoginState = erlang:get(?login_state),
-%%    ?LOG("err_code:~w~n", [[self(), ?ERR_OTHER_LOGIN, State]]),
+%%    ?INFO("err_code:~w~n", [[self(), ?ERR_OTHER_LOGIN, State]]),
     
     if
         LoginState =:= ?LOGIN_INIT_DONE ->
@@ -54,12 +54,12 @@ handle_call(?ERR_OTHER_LOGIN, _From, State) ->
 
 handle_call({stop, ErrCode}, _From, State) ->
     ?tcp_send([0, 0, ErrCode]),
-%%    ?LOG("err_code:~w~n", [[self(), ErrCode, State]]),
+%%    ?INFO("err_code:~w~n", [[self(), ErrCode, State]]),
     {stop, normal, ok, State};
 
 handle_call({stop, ErrCode, Msg}, _From, State) ->
     ?tcp_send([0, 0, [ErrCode, Msg]]),
-%%    ?LOG("err_code:~w~n", [[self(), ErrCode, State]]),
+%%    ?INFO("err_code:~w~n", [[self(), ErrCode, State]]),
     {stop, normal, ok, State};
 
 handle_call({call, Mod, _FromNode, _FromModule, Msg}, _From, State) ->
@@ -90,7 +90,7 @@ handle_cast(_Msg, State) ->
 
 
 handle_info({tcp, _Socket, RecvBin}, State) ->
-%%    ?LOG("RecvBin:~p...~n", [[self(), rfc4627:decode(RecvBin), State]]),
+%%    ?INFO("RecvBin:~p...~n", [[self(), rfc4627:decode(RecvBin), State]]),
     case catch ?decode(RecvBin) of
         [Validity, ModId, ProtoId, Json] ->
             case catch network_mod:sign(Validity) of

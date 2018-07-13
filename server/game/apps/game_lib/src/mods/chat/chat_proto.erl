@@ -38,4 +38,4 @@ handle_info(?PROTO_CHAT_HORN, MsgBin) ->
     ?tcp_send(chat_sproto:encode(?PROTO_CHAT_HORN, 0));
 
 handle_info(_Cmd, _RawData) ->
-    ?LOG("handle_info no match ProtoId:~p~n Data:~p~n", [_Cmd, _RawData]).
+    ?INFO("handle_info no match ProtoId:~p~n Data:~p~n", [_Cmd, _RawData]).

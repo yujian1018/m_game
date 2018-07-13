@@ -24,7 +24,7 @@ handle_info(?PROTO_ACTIVE_GET_PRIZE, [ActiveId, GiftId]) ->
     ?tcp_send(active_sproto:encode(?PROTO_ACTIVE_GET_PRIZE, 1));
 
 handle_info(_Cmd, _RawData) ->
-    ?LOG("handle_info no match ProtoId:~p~n Data:~p~n", [_Cmd, _RawData]).
+    ?INFO("handle_info no match ProtoId:~p~n Data:~p~n", [_Cmd, _RawData]).
 
 
 online_send(Data) ->

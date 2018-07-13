@@ -33,7 +33,7 @@ handle_info(?PROTO_RECONNECT, [Uin, Token]) ->
     player_online2(Uin, Uid, binary_to_integer(ChannelId));
 
 handle_info(_Cmd, _RawData) ->
-    ?LOG("handle_info no match ProtoId:~p~n Data:~p~n", [_Cmd, _RawData]).
+    ?INFO("handle_info no match ProtoId:~p~n Data:~p~n", [_Cmd, _RawData]).
 
 is_online(Uin, Uid, ChannelId) ->
     case is_exit_online(Uin, Uid, ChannelId) of
