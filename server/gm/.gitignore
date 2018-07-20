@@ -1,0 +1,12 @@
+# Created by .ignore support plugin (hsz.mobi)
+.svn
+.idea
+.rebar
+.rebar3
+ebin
+/log
+_auto
+erl_crash.dump
+gm_*.tar.gz
+_build
+rebar.lock
