@@ -1,30 +1,34 @@
 @echo off
-::set Path=%CD%
-::PATH C:\Program Files\erl8.2\bin
-
-rd /q /s libs\common\ebin
-rd /q /s libs\common\.rebar
-rd /q /s libs\common\src\auto\def
-escript.exe libs\parse_tool\t_def libs\common\priv\def libs\common\src\auto\def\
 
 
-rd /q /s apps\game_lib\ebin
-rd /q /s apps\game_lib\.rebar
-rd /q /s apps\game_lib\src\auto\def
-escript.exe libs\parse_tool\t_def apps\etc\def\game_lib apps\game_lib\src\auto\def\
+cd lib\parse_tool
+escript.exe rebar compile
+cd ../../
 
+echo %cd%
+
+rd /q /s lib\common\ebin
+rd /q /s lib\common\.rebar
+rd /q /s lib\common\src\auto\def
+escript.exe lib\parse_tool\t_def lib\common\priv\def lib\common\src\auto\def\
+
+cd lib\common
+echo %cd%
+escript.exe rebar compile
+cd ../../
+echo %cd%
 
 rd /q /s apps\http\ebin
 rd /q /s apps\http\src\auto
-escript.exe libs\parse_tool\t_def apps\etc\def\http\ apps\http\src\auto\def\
-escript.exe libs\parse_tool\t_proto apps\etc\proto\http apps\http\src\auto\proto\ apps\http\priv\docroot\api apps\etc\def\web_server
+escript.exe lib\parse_tool\t_def config\def\http\ apps\http\src\auto\def\
+escript.exe lib\parse_tool\t_proto config\proto\http apps\http\src\auto\proto\ apps\http\priv\docroot\api config\def\http
 
 
 rd /q /s obj\ebin
 rd /q /s obj\src\auto
-escript.exe libs\parse_tool\t_def etc\def\obj obj\src\auto\def\
-escript.exe libs\parse_tool\t_proto etc\proto\obj obj\src\auto\proto\
+escript.exe lib\parse_tool\t_def config\def\obj obj\src\auto\def\
+escript.exe lib\parse_tool\t_proto config\proto\obj obj\src\auto\proto\ obj\priv\docroot\api config\def\obj
 
 
-escript.exe rebar co
+escript.exe rebar3 compile
 pause

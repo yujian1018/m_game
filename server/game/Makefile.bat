@@ -1,5 +1,5 @@
 @echo off
 
-escript rebar co
+escript rebar3 compile
 
 pause

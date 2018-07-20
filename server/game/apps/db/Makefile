@@ -5,9 +5,9 @@ all:
 
 
 def:
-	escript ../../libs/parse_tool/t_def ../etc/def/db src/auto/def/
+	escript ../../lib/parse_tool/t_def ../../config/def/db src/_auto/def/
 
 
 auto:
-	rm -rf src/auto
+	rm -rf src/_auto
 	make def

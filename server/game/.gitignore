@@ -4,13 +4,14 @@
 .rebar
 ebin
 /log
-auto
+_auto
 deps/
 erl_crash.dump
 game_*.tar.gz
 apps/http/priv/docroot/api
 apps/im/priv/docroot/api
-obj/priv/docroot/api
+apps/etc/proto/logic/priv/docroot/api
 im/priv/docroot/api
-obj/test_frame
+apps/etc/proto/logic/test_frame
 _build
+rebar.lock

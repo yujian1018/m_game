@@ -1,7 +1,7 @@
 
 def:
-	rm -rf src/auto/def
-	escript ../../lib/parse_tool/t_def ../../etc/def/global src/auto/def/
+	rm -rf src/_auto/def
+	escript ../../lib/parse_tool/t_def ../../config/def/global src/_auto/def/
 
 all:
 	rm -rf ebin
