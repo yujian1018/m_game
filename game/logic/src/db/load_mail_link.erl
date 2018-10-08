@@ -6,7 +6,7 @@
 %%%-------------------------------------------------------------------
 -module(load_mail_link).
 
--include("obj_pub.hrl").
+-include("logic_pub.hrl").
 -include("mail_link_auto_sql.hrl").
 
 -export([

@@ -9,7 +9,7 @@
 
 -module(player_behaviour).
 
--include("obj_pub.hrl").
+-include("logic_pub.hrl").
 
 -export([
     load_data/1,

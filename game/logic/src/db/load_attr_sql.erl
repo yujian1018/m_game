@@ -7,7 +7,7 @@
 -module(load_attr_sql).
 
 -include("load_attr.hrl").
--include("obj_pub.hrl").
+-include("logic_pub.hrl").
 
 -export([sql/1, lookup/1, to_record/2, save_data/1]).
 

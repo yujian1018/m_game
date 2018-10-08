@@ -6,7 +6,7 @@
 %%%-------------------------------------------------------------------
 -module(load_orders).
 
--include("obj_pub.hrl").
+-include("logic_pub.hrl").
 
 -export([
     create_orders/7,

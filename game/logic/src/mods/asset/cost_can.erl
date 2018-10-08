@@ -6,7 +6,7 @@
 %%%-------------------------------------------------------------------
 -module(cost_can).
 
--include("game_pub.hrl").
+-include("logic_pub.hrl").
 
 -export([
     asset/2, asset_can/2,

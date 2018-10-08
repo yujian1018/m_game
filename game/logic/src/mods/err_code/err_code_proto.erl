@@ -6,7 +6,7 @@
 %%%-------------------------------------------------------------------
 -module(err_code_proto).
 
--include("game_pub.hrl").
+-include("logic_pub.hrl").
 
 -export([
     err_code/1,

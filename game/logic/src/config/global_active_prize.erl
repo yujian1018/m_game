@@ -7,7 +7,7 @@
 -module(global_active_prize).
 
 -include_lib("cache/include/cache_mate.hrl").
--include("obj_pub.hrl").
+-include("logic_pub.hrl").
 
 -export([
     get_prize/3,

@@ -1,6 +1,6 @@
 -module(attr_can).
 
--include("obj_pub.hrl").
+-include("logic_pub.hrl").
 
 -export([
     attr/2

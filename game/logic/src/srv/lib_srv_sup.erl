@@ -6,7 +6,7 @@
 %%%-------------------------------------------------------------------
 -module(lib_srv_sup).
 
--include("game_pub.hrl").
+-include("logic_pub.hrl").
 
 -behaviour(supervisor).
 

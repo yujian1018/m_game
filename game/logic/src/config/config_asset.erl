@@ -6,7 +6,7 @@
 %%%-------------------------------------------------------------------
 -module(config_asset).
 
--include("obj_pub.hrl").
+-include("logic_pub.hrl").
 -include_lib("cache/include/cache_mate.hrl").
 
 -export([

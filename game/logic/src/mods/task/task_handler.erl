@@ -7,7 +7,7 @@
 -module(task_handler).
 
 
--include("obj_pub.hrl").
+-include("logic_pub.hrl").
 -include("player_behaviour.hrl").
 
 

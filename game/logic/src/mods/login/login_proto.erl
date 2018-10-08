@@ -4,7 +4,7 @@
 %% 
 -module(login_proto).
 
--include("obj_pub.hrl").
+-include("logic_pub.hrl").
 
 -export([
     handle_info/2,
@@ -46,7 +46,7 @@ is_online(Uin, Uid, ChannelId) ->
                     self() ! stop,
                     gen_tcp:close(OldSocket);
                 _Other ->
-                    gen_server:call(OldPid, {stop, ?ERR_OTHER_LOGIN}, 10000),
+                    gen_server:call(OldPid, {stop, ?ERR_EXIT_LOGIN}, 10000),
 %%                    ?ERROR("555:~p~n", [_Other]),
                     online(Uin, Uid, ChannelId)
             end;
@@ -60,11 +60,11 @@ is_exit_online(Uin, Uid, ChannelId) ->
 %%            ?INFO("111:~p~n", [[OldPid]]),
             case erlang:is_process_alive(OldPid) of
                 true ->
-                    case catch gen_server:call(OldPid, ?ERR_OTHER_LOGIN, 10000) of
+                    case catch gen_server:call(OldPid, ?ERR_EXIT_LOGIN, 10000) of
                         ok -> {ok, OldPid};
                         _Other ->
                             ?ERROR("err:~p~n", [_Other]),
-                            catch gen_server:call(OldPid, {stop, ?ERR_OTHER_LOGIN}, 10000),
+                            catch gen_server:call(OldPid, {stop, ?ERR_EXIT_LOGIN}, 10000),
                             online(Uin, Uid, ChannelId)
                     end;
                 false ->
@@ -72,7 +72,7 @@ is_exit_online(Uin, Uid, ChannelId) ->
             end;
         {ok, Node, PidBin} ->
 %%            ?INFO("222:~p~n", [[Uid]]),
-            ?rpc_call(Node, Uid, PidBin, {stop, ?ERR_OTHER_LOGIN}),
+            ?rpc_call(Node, Uid, PidBin, {stop, ?ERR_EXIT_LOGIN}),
             online(Uin, Uid, ChannelId);
         false ->
 %%            ?INFO("333:~p~n", [[Uid]]),
@@ -81,7 +81,7 @@ is_exit_online(Uin, Uid, ChannelId) ->
 
 player_online2(Uin, Uid, ChannelId) ->
 %%    ?INFO("player_online2:~p~n", [[self(), State#player_state.uid]]),
-    ?send_call(Uid, {stop, ?ERR_OTHER_LOGIN}),
+    ?send_call(Uid, {stop, ?ERR_EXIT_LOGIN}),
     ?put(?uin, Uin),
     ?put(?uid, Uid),
     ?put(?channel_id, ChannelId),

@@ -23,7 +23,7 @@ handle_info(?PROTO_LOGIN, [AppId, Iid]) ->
     case player_mgr:get(Iid) of
         false -> ok;
         Pid ->
-            gen_server:call(Pid, {stop, ?ERR_OTHER_LOGIN}, 10000)
+            gen_server:call(Pid, {stop, ?ERR_EXIT_LOGIN}, 10000)
     end,
     player_mgr:add(self(), Iid),
     ?tcp_send(login_sproto:encode(?PROTO_DATA_OVER, 1)),

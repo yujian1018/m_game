@@ -7,7 +7,7 @@
 -module(config_prize).
 
 -include_lib("cache/include/cache_mate.hrl").
--include("obj_pub.hrl").
+-include("logic_pub.hrl").
 
 -export([
     vip_asset/4, vip_fun/2, vip_fun_count/2, vip_daily_prize/1, vip_lvup/1

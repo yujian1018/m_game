@@ -6,7 +6,7 @@
 %%%-------------------------------------------------------------------
 -module(log_login_log).
 
--include("obj_pub.hrl").
+-include("logic_pub.hrl").
 
 
 -record(log_login, {

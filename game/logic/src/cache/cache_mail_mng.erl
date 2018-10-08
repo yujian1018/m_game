@@ -8,7 +8,7 @@
 
 -behaviour(cache_srv).
 -include_lib("cache/include/cache_mate.hrl").
--include("obj_pub.hrl").
+-include("logic_pub.hrl").
 
 -export([
     refresh/0

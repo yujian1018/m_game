@@ -7,7 +7,7 @@
 -module(global_active).
 
 -include_lib("cache/include/cache_mate.hrl").
--include("obj_pub.hrl").
+-include("logic_pub.hrl").
 
 -export([
     exit/1, get_active/1,

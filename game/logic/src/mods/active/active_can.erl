@@ -6,7 +6,7 @@
 %%%-------------------------------------------------------------------
 -module(active_can).
 
--include("obj_pub.hrl").
+-include("logic_pub.hrl").
 
 -export([
     is_open/1

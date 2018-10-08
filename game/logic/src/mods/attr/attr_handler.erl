@@ -7,7 +7,7 @@
 -module(attr_handler).
 
 -include("player_behaviour.hrl").
--include("obj_pub.hrl").
+-include("logic_pub.hrl").
 -include("../../db/load_attr.hrl").
 
 -export([

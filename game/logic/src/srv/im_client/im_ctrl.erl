@@ -6,7 +6,7 @@
 %%%-------------------------------------------------------------------
 -module(im_ctrl).
 
--include("game_pub.hrl").
+-include("logic_pub.hrl").
 
 -export([
     create_user/1,

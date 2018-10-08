@@ -6,7 +6,7 @@
 %%% -------------------------------------------------------------------
 -module(player_server).
 
--include("game_pub.hrl").
+-include("logic_pub.hrl").
 
 
 -export([init/1, handle_call/3, handle_cast/2, handle_info/2, terminate/2]).
@@ -38,11 +38,11 @@ handle_call({re_online, Random, NewSocket}, _From, State) ->
     {reply, {ok, OldSocket}, State};
 
 %% 为了兼容老版本，保存两份socket
-handle_call(?ERR_OTHER_LOGIN, _From, State) ->
-    ?tcp_send([0, 0, ?ERR_OTHER_LOGIN]),
+handle_call(?ERR_EXIT_LOGIN, _From, State) ->
+    ?tcp_send([0, 0, ?ERR_EXIT_LOGIN]),
     Tick = erlang:get(?tick),
     LoginState = erlang:get(?login_state),
-%%    ?INFO("err_code:~w~n", [[self(), ?ERR_OTHER_LOGIN, State]]),
+%%    ?INFO("err_code:~w~n", [[self(), ?ERR_EXIT_LOGIN, State]]),
     
     if
         LoginState =:= ?LOGIN_INIT_DONE ->

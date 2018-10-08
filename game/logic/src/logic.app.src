@@ -1,13 +1,14 @@
-{application, obj,
+{application, logic,
     [
         {description, ""},
         {vsn, "1"},
         {registered, []},
         {applications, [
             kernel,
-            stdlib
+            stdlib,
+            global
         ]},
-        {mod, {obj_app, []}},
+        {mod, {logic_app, []}},
         {env, [
         ]}
     ]}.

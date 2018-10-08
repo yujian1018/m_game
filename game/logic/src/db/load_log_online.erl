@@ -7,7 +7,7 @@
 -module(load_log_online).
 
 -include("log_online_auto_sql.hrl").
--include("game_pub.hrl").
+-include("logic_pub.hrl").
 
 -export([load_data/1, save_data/1]).
 

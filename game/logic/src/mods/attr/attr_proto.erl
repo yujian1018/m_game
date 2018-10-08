@@ -6,7 +6,7 @@
 %%%-------------------------------------------------------------------
 -module(attr_proto).
 
--include("obj_pub.hrl").
+-include("logic_pub.hrl").
 -include("../../db/load_attr.hrl").
 
 -export([

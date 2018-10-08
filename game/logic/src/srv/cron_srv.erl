@@ -6,7 +6,7 @@
 %%%-------------------------------------------------------------------
 -module(cron_srv).
 
--include("obj_pub.hrl").
+-include("logic_pub.hrl").
 
 -behaviour(gen_server).
 

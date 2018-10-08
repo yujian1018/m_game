@@ -7,7 +7,7 @@
 %%%-------------------------------------------------------------------
 
 
--include("global_pub.hrl").
+-include_lib("global/include/global_pub.hrl").
 
 -include("player.hrl").
 

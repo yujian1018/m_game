@@ -8,7 +8,7 @@
 -module(shop_handler).
 
 
--include("obj_pub.hrl").
+-include("logic_pub.hrl").
 
 -export([
     add_asset/1

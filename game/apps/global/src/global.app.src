@@ -1,0 +1,12 @@
+{application, global,
+    [
+        {description, "全局模块"},
+        {vsn, "1"},
+        {registered, []},
+        {applications, [
+            kernel,
+            stdlib
+        ]},
+        {env, [
+        ]}
+    ]}.

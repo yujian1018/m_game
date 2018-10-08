@@ -7,7 +7,7 @@
 -module(item_proto).
 
 
--include("obj_pub.hrl").
+-include("logic_pub.hrl").
 
 
 -export([

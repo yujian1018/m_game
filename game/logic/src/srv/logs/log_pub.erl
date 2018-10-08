@@ -6,7 +6,7 @@
 %%%-------------------------------------------------------------------
 -module(log_pub).
 
--include("obj_pub.hrl").
+-include("logic_pub.hrl").
 
 -export([
     sup/0, save_data/2,

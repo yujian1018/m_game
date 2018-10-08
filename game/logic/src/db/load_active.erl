@@ -9,7 +9,7 @@
 
 -include_lib("cache/include/cache_mate.hrl").
 -include("load_active.hrl").
--include("obj_pub.hrl").
+-include("logic_pub.hrl").
 
 -export([load_data/1, save_data/1, del_data/1, data/1]).
 

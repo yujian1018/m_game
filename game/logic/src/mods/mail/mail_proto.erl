@@ -6,7 +6,7 @@
 %%%-------------------------------------------------------------------
 -module(mail_proto).
 
--include("obj_pub.hrl").
+-include("logic_pub.hrl").
 
 -export([handle_info/2]).
 

@@ -8,7 +8,7 @@
 
 
 -include("load_active.hrl").
--include("obj_pub.hrl").
+-include("logic_pub.hrl").
 
 -export([
     sql/1,

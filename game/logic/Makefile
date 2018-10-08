@@ -6,7 +6,7 @@ all:
 
 def:
 	rm -rf src/_auto/def
-	escript ../lib/parse_tool/t_def ../config/def/obj src/_auto/def/
+	escript ../lib/parse_tool/t_def ../config/def/logic src/_auto/def/
 
 
 proto:
@@ -23,7 +23,7 @@ auto:
 	rm -rf src/_auto
 	make def
 	make proto
-	make mysql
+	#make mysql
 
 
 

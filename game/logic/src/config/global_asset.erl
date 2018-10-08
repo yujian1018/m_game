@@ -7,7 +7,7 @@
 -module(global_asset).
 
 -include_lib("cache/include/cache_mate.hrl").
--include("obj_pub.hrl").
+-include("logic_pub.hrl").
 
 -export([
     exit_cost_id/1, exit_prize_id/1,

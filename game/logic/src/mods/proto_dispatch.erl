@@ -6,7 +6,7 @@
 %%% -------------------------------------------------------------------
 -module(proto_dispatch).
 
--include("obj_pub.hrl").
+-include("logic_pub.hrl").
 
 -export([recv_dispatch/4]).
 
@@ -32,7 +32,7 @@ recv_dispatch(ModId, ProtoId, Data, LoginState) ->
                           if
                               Mod =:= error ->
                                   ?DEBUG("error no module_id:~p~n", [ModId]),
-                                  ?return_err(?ERR_NO_PROTO);
+                                  ?return_err(?ERR_NOTFOUND_API);
                               Mod =:= ?LOGIN_SPROTO andalso ProtoId =:= ?PROTO_LOGIN ->
                                   ?DEBUG("error relogin data:~p~n", [[ModId, ProtoId, Data]]),
                                   ?return_err(?ERR_RE_ONLINE);

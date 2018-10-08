@@ -7,7 +7,7 @@
 -module(global_active_gift).
 
 -include_lib("cache/include/cache_mate.hrl").
--include("obj_pub.hrl").
+-include("logic_pub.hrl").
 
 -export([
     get_active_id/1, get_gift_id/2,

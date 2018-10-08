@@ -1,6 +1,6 @@
--module(obj_sup).
+-module(logic_sup).
 
--include("obj_pub.hrl").
+-include("logic_pub.hrl").
 
 -behaviour(supervisor).
 

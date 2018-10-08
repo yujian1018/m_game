@@ -3,11 +3,11 @@
 %% Created: 2012-9-23
 %% @doc application,服务器主监控进程.
 
--module(obj_app).
+-module(logic_app).
 
 -behaviour(application).
 
--include("obj_pub.hrl").
+-include("logic_pub.hrl").
 
 -export([start/0, start/2, stop/1, stop/0]).
 
@@ -36,7 +36,7 @@ start(_StartType, _StartArgs) ->
     
     application:start(?cache),
     
-    {ok, Pid} = obj_sup:start_link(),
+    {ok, Pid} = logic_sup:start_link(),
     init(),
     ?INFO("game started...~n"),
     {ok, Pid}.
@@ -57,6 +57,6 @@ stop() ->
 init() ->
     application:start(?network),
     {ok, Port} = application:get_env(?obj, port),
-    l2c:start(Port, ?TCP_OPTIONS, player_server, ws),
+    network:start(Port, ?TCP_OPTIONS, player_server, ws),
     ?INFO("tcp port:~p~n", [Port]),
     ok.

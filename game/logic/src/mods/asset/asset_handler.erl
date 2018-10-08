@@ -6,7 +6,7 @@
 %%%-------------------------------------------------------------------
 -module(asset_handler).
 
--include("obj_pub.hrl").
+-include("logic_pub.hrl").
 
 -export([
     handler_call/1,
