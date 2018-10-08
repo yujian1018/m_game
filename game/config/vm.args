@@ -1,0 +1,33 @@
+## 设置在shell中使用unicode编码
++pc unicode
+
+## 设置cookie
+-setcookie 123456
+
+## kernel-poll
++K true
+
+#-boot start_sasl
+
+## 设置节点行为。默认为所有节点互联
+##-hidden 不与任何节点连接，但是可以使用rpc
+##-connect_all false 只与互联的节点建立连接
+
+#-hidden
+-connect_all false
+
+##按从前到后的顺序来绑定调度器
+#+sbt db
+
+
+-kernel inet_dist_listen_min 21000
+-kernel inet_dist_listen_max 21200
+-epmd_port 21200
+-epmd "epmd -port 21200 -daemon"
+
+-pa _build/default/lib/common/ebin _build/default/lib/cache/ebin _build/default/lib/global/ebin _build/default/lib/network/ebin
+
+-pa _build/default/lib/cowboy/ebin _build/default/lib/cowlib/ebin _build/default/lib/ranch/ebin
+-pa _build/default/lib/emysql/ebin _build/default/lib/eredis/ebin _build/default/lib/eredis_pool/ebin _build/default/lib/poolboy/ebin
+-pa _build/default/lib/goldrush/ebin _build/default/lib/lager/ebin
+-pa _build/default/lib/jiffy/ebin _build/default/lib/jsx/ebin

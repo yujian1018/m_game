@@ -1,0 +1,23 @@
+# Created by .ignore support plugin (hsz.mobi)
+.svn
+.idea
+.rebar3
+/log
+_auto
+_build
+lib
+
+http/priv/docroot/api
+logic/priv/docroot/api
+
+
+erl_crash.dump
+rebar3.crashdump
+
+*.tar.gz
+
+rebar.lock
+*.S
+*.dis
+
+test_frame
