@@ -1,5 +1,8 @@
 #[游戏服务端架构](https://github.com/yujian1018/m_game/blob/master/game/README.md)
 
+## 游戏架构
+![game_des](https://raw.githubusercontent.com/yujian1018/m_game/master/doc/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/game_%E6%A1%86%E6%9E%B6.png)
+
 # 小技巧
 
 ##关于优化
