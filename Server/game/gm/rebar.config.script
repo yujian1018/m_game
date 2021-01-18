@@ -1,0 +1,11 @@
+{erl_opts, Opts} = lists:keyfind(erl_opts, 1, CONFIG),
+
+NewOpts =
+    case os:type() of
+        {unix,linux} ->
+            [native, {d, linux}]++Opts;
+        _ ->
+            [{d, windows}]++Opts
+    end,
+
+lists:keyreplace(erl_opts, 1, CONFIG, {erl_opts, NewOpts}).

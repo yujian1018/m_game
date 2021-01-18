@@ -1,0 +1,4 @@
+
+-pa test_frame/ebin
+
+-s t_app start

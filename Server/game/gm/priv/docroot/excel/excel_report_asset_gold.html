@@ -1,0 +1,215 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>报表_每日金币统计</title>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/amazeui/2.7.2/js/amazeui.min.js"></script>
+    <script src="https://cdn.bootcss.com/moment.js/2.18.1/moment.min.js"></script>
+    <script src="https://cdn.bootcss.com/moment.js/2.18.1/locale/zh-cn.js"></script>
+    <script src="https://cdn.bootcss.com/echarts/3.6.1/echarts.min.js"></script>
+    <link rel="stylesheet" href="/assets/css/excel.css">
+    <script src="../js/main.js"></script>
+    <script>
+        $(function () {
+            config.tab_name = "report_asset_gold";
+            sys_handler.get_options("2");
+            var html = "";
+            for (var i = 0; i < tab_config.options_channel.length; i++) {
+                html += "<option value=\"" + tab_config.options_channel[i][0] + "\">" + tab_config.options_channel[i][1] + "</option>";
+            }
+            $("#channel_id").html(html);
+            excel_handler.per();
+            $(".am-tabs ul li").click(function(){
+                var id = $(this).find("a").attr("href");
+                if(id == "#asset_prize"){
+                    $("#asset_prize").show();
+                    $("#asset_cost").hide();
+                }else{
+                    $("#asset_prize").hide();
+                    $("#asset_cost").show();
+                }
+            });
+        })
+    </script>
+</head>
+
+<body>
+<header class="am-topbar am-topbar-inverse admin-header"></header>
+<div class="tpl-page-container tpl-page-header-fixed">
+    <div class="tpl-content-wrapper" id="tpl-content-wrapper">
+        <div class="tpl-portlet-components">
+            <div class="portlet-title">
+                <div class="caption font-green bold">
+                    <span class="am-icon-code"></span> <span id="content_title">报表_每日金币统计</span>
+                </div>
+            </div>
+            <div class="tpl-block" id="tab">
+                <div id="content_tab_list" class="am-g">
+                    <div style="margin-bottom: 20px;overflow: hidden;">
+                        <div class="am-cf">
+                            <div class="am-btn-toolbar">
+                                <div class="am-btn-group am-btn-group-xs">
+                                    <button type="button" class="am-btn am-btn-primary"
+                                            onclick="excel_handler.per()"><span class="am-icon-search"></span> 查询
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="am-form" id="form_list">
+                        <div class="am-tabs" data-am-tabs>
+                            <ul class="am-tabs-nav am-nav am-nav-tabs">
+                                <li class="am-active"><a href="#asset_prize">奖励</a></li>
+                                <li><a href="#asset_cost">消耗</a></li>
+                            </ul>
+                        <table class="am-table am-table-hover am-table-bordered" id="table">
+                            <thead id="table_input">
+                            <tr>
+                                <th><input type="text" name="c_times" class="am-form-field" id="c_times">
+                                    <script type="application/javascript">$(function () {
+                                        var $new_date = $("#c_times").datetimepicker();
+                                        var date = time_lib.to_date(-1);
+                                        $new_date.data("DateTimePicker").date(date);
+                                    }) </script>
+                                </th>
+                                <th><select name="channel_id" id="channel_id" style="display: none;"></select>
+                                    <script type="application/javascript">$(function () {
+                                        $("#channel_id").selected({btnSize: 'xs'});
+                                    })</script>
+                                </th>
+                            </tr>
+                            </thead>
+                            <thead id="table_field">
+                            <tr>
+                                <th width="100">分类</th>
+                                <th width="100">获取金币</th>
+                                <th width="100">总占比</th>
+                                <th width="160">获取项名称</th>
+                                <th width="100">数量</th>
+                                <th width="100">占比</th>
+                                <th>用户数</th>
+                            </tr>
+                            </thead>
+                            <tbody id="asset_prize">
+                            <td rowspan="1">角色初始化</td><td rowspan="1"></td><td rowspan="1"></td><td>角色初始化</td><td id="12">0</td><td></td><td></td></tr>
+                            <tr><td rowspan="4">新手引导</td><td rowspan="4"></td><td rowspan="4"></td><td>新手引导1奖励</td><td id="1201101">0</td><td></td><td></td></tr>
+                            <tr><td>新手引导2奖励</td><td id="1201102">0</td><td></td><td></td></tr>
+                            <tr><td>新手引导3奖励</td><td id="1201103">0</td><td></td><td></td></tr>
+                            <tr><td>新手引导4奖励</td><td id="1201104">0</td><td></td><td></td></tr>
+                            <tr><td rowspan="14">充值</td><td rowspan="14"></td><td rowspan="14"></td><td>首充礼包</td><td id="100104001">0</td><td></td><td></td></tr>
+                            <tr><td>充值6w金币</td><td id="100801001">0</td><td></td><td></td></tr>
+                            <tr><td>充值36w金币</td><td id="100801002">0</td><td></td><td></td></tr>
+                            <tr><td>充值80w金币</td><td id="100801003">0</td><td></td><td></td></tr>
+                            <tr><td>充值180w金币</td><td id="100801004">0</td><td></td><td></td></tr>
+                            <tr><td>充值500w金币</td><td id="100801005">0</td><td></td><td></td></tr>
+                            <tr><td>充值1200w金币</td><td id="100801006">0</td><td></td><td></td></tr>
+                            <tr><td>金卡（4.99$）</td><td id="100802001">0</td><td></td><td></td></tr>
+                            <tr><td>白金卡（19.99$）</td><td id="100802002">0</td><td></td><td></td></tr>
+                            <tr><td>黑卡（49.99$）</td><td id="100802003">0</td><td></td><td></td></tr>
+                            <tr><td>每日充值2.99$</td><td id="100803001">0</td><td></td><td></td></tr>
+                            <tr><td>金卡（4.99$）每日奖励</td><td id="100804001">0</td><td></td><td></td></tr>
+                            <tr><td>白金卡（19.99$）每日奖励</td><td id="100804002">0</td><td></td><td></td></tr>
+                            <tr><td>黑卡（49.99$）每日奖励</td><td id="100804003">0</td><td></td><td></td></tr>
+                            <tr><td rowspan="2">转盘</td><td rowspan="2"></td><td rowspan="2"></td><td>大转盘筹码</td><td id="101501001">0</td><td></td><td></td></tr>
+                            <tr><td>大转盘筹码箱</td><td id="101501004">0</td><td></td><td></td></tr>
+                            <tr><td rowspan="7">等级礼包</td><td rowspan="7"></td><td rowspan="7"></td><td>等级礼包1奖励</td><td id="100102001">0</td><td></td><td></td></tr>
+                            <tr><td>等级礼包2奖励</td><td id="100102002">0</td><td></td><td></td></tr>
+                            <tr><td>等级礼包3奖励</td><td id="100102003">0</td><td></td><td></td></tr>
+                            <tr><td>等级礼包4奖励</td><td id="100102004">0</td><td></td><td></td></tr>
+                            <tr><td>等级礼包5奖励</td><td id="100102005">0</td><td></td><td></td></tr>
+                            <tr><td>等级礼包6奖励</td><td id="100102006">0</td><td></td><td></td></tr>
+                            <tr><td>等级礼包7奖励</td><td id="100102007">0</td><td></td><td></td></tr>
+                            <tr><td rowspan="11">普通场</td><td rowspan="11"></td><td rowspan="11"></td><td>普通房战斗</td><td id="131006">0</td><td></td><td></td></tr>
+                            <tr><td>普通房2000结算</td><td id="131009">0</td><td></td><td></td></tr>
+                            <tr><td>普通房4000结算</td><td id="131010">0</td><td></td><td></td></tr>
+                            <tr><td>普通房10k结算</td><td id="131011">0</td><td></td><td></td></tr>
+                            <tr><td>普通房20k结算</td><td id="131012">0</td><td></td><td></td></tr>
+                            <tr><td>普通房100k结算</td><td id="131013">0</td><td></td><td></td></tr>
+                            <tr><td>普通房200k结算</td><td id="131014">0</td><td></td><td></td></tr>
+                            <tr><td>普通房400k结算</td><td id="131015">0</td><td></td><td></td></tr>
+                            <tr><td>普通房800k结算</td><td id="131016">0</td><td></td><td></td></tr>
+                            <tr><td>普通房1500k结算</td><td id="131017">0</td><td></td><td></td></tr>
+                            <tr><td>普通房3000k结算</td><td id="131018">0</td><td></td><td></td></tr>
+                            <tr><td rowspan="7">SNG场</td><td rowspan="7"></td><td rowspan="7"></td><td>sng结算</td><td id="133009">0</td><td></td><td></td></tr>
+                            <tr><td>sng1结算</td><td id="133010">0</td><td></td><td></td></tr>
+                            <tr><td>sng2结算</td><td id="133011">0</td><td></td><td></td></tr>
+                            <tr><td>sng3结算</td><td id="133012">0</td><td></td><td></td></tr>
+                            <tr><td>sng4结算</td><td id="133013">0</td><td></td><td></td></tr>
+                            <tr><td>sng5结算</td><td id="133014">0</td><td></td><td></td></tr>
+                            <tr><td>sng6结算</td><td id="133015">0</td><td></td><td></td></tr>
+                            <tr><td rowspan="6">在线奖励</td><td rowspan="6"></td><td rowspan="6"></td><td>第1阶段</td><td id="1401001">0</td><td></td><td></td></tr>
+                            <tr><td>第2阶段</td><td id="1401002">0</td><td></td><td></td></tr>
+                            <tr><td>第3阶段</td><td id="1401003">0</td><td></td><td></td></tr>
+                            <tr><td>第4阶段</td><td id="1401004">0</td><td></td><td></td></tr>
+                            <tr><td>第5阶段</td><td id="1401005">0</td><td></td><td></td></tr>
+                            <tr><td>第6阶段</td><td id="1401006">0</td><td></td><td></td></tr>
+                            <tr><td rowspan="4">救济金</td><td rowspan="4"></td><td rowspan="4"></td><td>救济金获取金币数量</td><td id="1801001">0</td><td></td><td></td></tr>
+                            <tr><td>救济金获取金币数量2</td><td id="1801002">0</td><td></td><td></td></tr>
+                            <tr><td>救济金获取金币数量3</td><td id="1801003">0</td><td></td><td></td></tr>
+                            <tr><td>救济金获取金币数量4</td><td id="1801004">0</td><td></td><td></td></tr>
+                            <tr><td rowspan="12">任务</td><td rowspan="12"></td><td rowspan="12"></td><td>每日登陆</td><td id="100502001">0</td><td></td><td></td></tr>
+                            <tr><td>分享到朋友圈</td><td id="100502002">0</td><td></td><td></td></tr>
+                            <tr><td>普通场对局5场</td><td id="100502003">0</td><td></td><td></td></tr>
+                            <tr><td>普通场赢取5千金币</td><td id="100502004">0</td><td></td><td></td></tr>
+                            <tr><td>参加1场SNG比赛</td><td id="100502005">0</td><td></td><td></td></tr>
+                            <tr><td>获得1场SNG名次</td><td id="100502006">0</td><td></td><td></td></tr>
+                            <tr><td>打赏荷官3次</td><td id="100502007">0</td><td></td><td></td></tr>
+                            <tr><td>使用3次动作表情</td><td id="100502008">0</td><td></td><td></td></tr>
+                            <tr><td>使用一次道具</td><td id="100502009">0</td><td></td><td></td></tr>
+                            <tr><td>充值任意金额</td><td id="100502010">0</td><td></td><td></td></tr>
+                            <tr><td>每周任务</td><td id="100503001">0</td><td></td><td></td></tr>
+                            <tr><td>成就任务</td><td id="100501001">0</td><td></td><td></td></tr>
+                            <tr><td rowspan="2">钻石兑换</td><td rowspan="2"></td><td rowspan="2"></td><td>10000筹码</td><td id="100808001">0</td><td></td><td></td></tr>
+                            <tr><td>50000筹码</td><td id="100808002">0</td><td></td><td></td></tr>
+                            <tr><td rowspan="1">邮件</td><td rowspan="1"></td><td rowspan="1"></td><td>邮件</td><td id="15">0</td><td></td><td></td></tr>
+                            <tr><td rowspan="4">VIP</td><td rowspan="4"></td><td rowspan="4"></td><td>VIP6筹码补足</td><td id="100807006">0</td><td></td><td></td></tr>
+                            <tr><td>VIP7筹码补足</td><td id="100807007">0</td><td></td><td></td></tr>
+                            <tr><td>VIP8筹码补足</td><td id="100807008">0</td><td></td><td></td></tr>
+                            <tr><td>VIP9筹码补足</td><td id="100807009">0</td><td></td><td></td></tr>
+                            <tr><td rowspan="1">测试</td><td rowspan="1"></td><td rowspan="1"></td><td>测试</td><td id="-1">0</td><td></td><td></td></tr>
+                            </tbody>
+                            <tbody id="asset_cost" style="display: none;">
+                            <tr><td rowspan="14">普通场</td><td rowspan="14"></td><td rowspan="14"></td><td>普通房打赏</td><td id="-131003">0</td><td></td><td></td></tr>
+                            <tr><td>普通房台费</td><td id="-131004">0</td><td></td><td></td></tr>
+                            <tr><td>普通房抽水</td><td id="-131005">0</td><td></td><td></td></tr>
+                            <tr><td>普通房战斗</td><td id="-131006">0</td><td></td><td></td></tr>
+                            <tr><td>普通房2000结算</td><td id="-131009">0</td><td></td><td></td></tr>
+                            <tr><td>普通房4000结算</td><td id="-131010">0</td><td></td><td></td></tr>
+                            <tr><td>普通房10k结算</td><td id="-131011">0</td><td></td><td></td></tr>
+                            <tr><td>普通房20k结算</td><td id="-131012">0</td><td></td><td></td></tr>
+                            <tr><td>普通房100k结算</td><td id="-131013">0</td><td></td><td></td></tr>
+                            <tr><td>普通房200k结算</td><td id="-131014">0</td><td></td><td></td></tr>
+                            <tr><td>普通房400k结算</td><td id="-131015">0</td><td></td><td></td></tr>
+                            <tr><td>普通房800k结算</td><td id="-131016">0</td><td></td><td></td></tr>
+                            <tr><td>普通房1500k结算</td><td id="-131017">0</td><td></td><td></td></tr>
+                            <tr><td>普通房3000k结算</td><td id="-131018">0</td><td></td><td></td></tr>
+                            <tr><td rowspan="8">SNG场</td><td rowspan="8"></td><td rowspan="8"></td><td>SNG1入场扣除费用</td><td id="-101001001">0</td><td></td><td></td></tr>
+                            <tr><td>SNG2入场扣除费用</td><td id="-101001002">0</td><td></td><td></td></tr>
+                            <tr><td>SNG3入场扣除费用</td><td id="-101001003">0</td><td></td><td></td></tr>
+                            <tr><td>SNG4入场扣除费用</td><td id="-101001004">0</td><td></td><td></td></tr>
+                            <tr><td>SNG5入场扣除费用</td><td id="-101001005">0</td><td></td><td></td></tr>
+                            <tr><td>SNG6入场扣除费用</td><td id="-101001006">0</td><td></td><td></td></tr>
+                            <tr><td>sng战斗</td><td id="-132001">0</td><td></td><td></td></tr>
+                            <tr><td>sng结算</td><td id="-133008">0</td><td></td><td></td></tr>
+                            </tbody>
+                        </table>
+                        </div>
+                        <input type="hidden" name="form_list_sort_key" value="">
+                        <input type="hidden" name="form_list_sort" value="0">
+                        <input type="hidden" name="form_list_c_page" id="c_page" value="1">
+                    </form>
+                    <div>
+                        <p>总获取金币数:<span style="color:red;" id="asset_count_prize">0</span></p>
+                        <p>总消耗金币数:<span style="color:red;" id="asset_count_cost">0</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer></footer>
+</body>
+
+</html>

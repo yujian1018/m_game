@@ -1,4 +1,0 @@
-
--pa apps/http/ebin ex/db/ebin
-
--s http_app start

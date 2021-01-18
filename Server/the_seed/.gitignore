@@ -1,0 +1,6 @@
+# Created by .ignore support plugin (hsz.mobi)
+apps/http/priv/docroot/api
+apps/im/priv/docroot/api
+obj/priv/docroot/api
+im/priv/docroot/api
+obj/test_frame
