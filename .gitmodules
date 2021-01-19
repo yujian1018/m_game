@@ -1,0 +1,12 @@
+[submodule ".\\Server\\the_seed\\libs\\cache"]
+	path = .\\Server\\the_seed\\libs\\cache
+	url = https://github.com/yujian1018/cache
+[submodule ".\\Server\\the_seed\\libs\\network"]
+	path = .\\Server\\the_seed\\libs\\network
+	url = https://github.com/yujian1018/network
+[submodule ".\\Server\\the_seed\\libs\\common"]
+	path = .\\Server\\the_seed\\libs\\common
+	url = https://github.com/yujian1018/libs_erl
+[submodule ".\\Server\\the_seed\\libs\\parse_tool"]
+	path = .\\Server\\the_seed\\libs\\parse_tool
+	url = https://github.com/yujian1018/parse_tool
