@@ -1,0 +1,19 @@
+
+enum err_code{
+    ERR_OK                              = 0,    %% 没有错误
+    ERR_ROLE_NOT_EXIST                  = 1     %% 角色不存在
+}
+
+ERR:atom
+ER:binary
+E:string
+
+enum err{
+    ERR_OK_1                              = 0:err_ok_1,    %% 没有错误
+    ERR_ROLE_NOT_EXIST_1                  = 1:err_role_not_exist_1     %% 角色不存在
+}
+
+enum err_test{
+    test:atom,
+    test_1:atom
+}

@@ -1,0 +1,11 @@
+{application, parse_tool,
+ [
+  {description, "根据信息生成erlang源代码"},
+  {vsn, "1"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {env, []}
+ ]}.

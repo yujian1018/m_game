@@ -1,0 +1,25 @@
+%#include "game.sproto"
+
+%%用户登陆
+proto USER_LOGIN = 1
+{
+    client
+    {
+        t1, %%aaa
+        t2, %%bbb我们都由一个家爱
+        token:list<{
+            token_id,
+            token_uid
+        }> %%ccc
+    }
+    server
+    {
+        t1, %%aaa
+        t2, %%bbb
+        token:list<{
+            token_id    %%ccc
+        }>
+    }
+}
+
+

@@ -1,0 +1,89 @@
+/*全局样式放在这里 ------------------------------------*/
+*{margin:0px;padding:0px;}
+body{color:#333;font:14px/1.5 arial;background:url(topnav_bg.gif) repeat-x 0 115px;}
+.clear{float:none;clear:both;}
+ul, li {list-style:none;}
+.dis{display:none;}
+a{text-decoration:none;}
+.wtcenter{width:1120px;margin:0 auto;}
+.text-left{text-align:left;}
+/*全局样式放在这里 ------------------------------------*/
+
+/*头部样式放在这里 ----------------------------http://115.159.34.60/v2/api--------*/
+#header{height:30px;width:100%;font:13px Arial,sans-serif;background-color:#222}
+#header .head{white-space:nowrap;height:30px;padding-left:4px;float:left;}
+#header ul.nav{line-height:27px;}
+#header .nav li{display:inline-block;line-height:27px;vertical-align:top;}
+#header .nav li a .title_head{display:block;border-top:2px solid transparent;}
+#header .nav li a .title{display:block;padding:0 5px;position:relative;z-index:1000;color:#CCC;}
+#header .nav li:hover{background-color:white;}
+#header .nav li:hover a .title_head{background-color:red;}
+#header .nav li:hover a .title{color:#36C;}
+/*头部样式放在这里 ------------------------------------*/
+
+
+/*导航样式放在这里 ------------------------------------*/
+#logo h1{line-height:85px;}
+#nav{line-height:30px;}
+#nav ul li{ float:left;display:inline;width:130px;}
+#nav ul li a{display:inline-block;height:30px;color:#5d5d5d;width:60%;margin-left:20%; padding-right:20%;text-align:center;}
+#nav ul li a:hover {color: #e00400;outline: none;}
+#nav ul li.selected{ background:url(topnav_tab.gif) no-repeat bottom left;}
+#nav ul li.selected a{background: url(topnav_tab.gif) no-repeat bottom right;color: #e20400;}
+/*导航样式放在这里 ------------------------------------*/
+
+
+/*边框*/
+#content {margin:30px auto 20px auto;border:1px solid #d3d3d3;border-radius: 3px;box-shadow: 0 3px 3px #ddd;
+    -moz-box-shadow: 0 3px 3px #ddd;-webkit-box-shadow: 0 3px 3px #ddd;-moz-border-radius: 3px;-webkit-border-radius: 3px;}
+
+#content #mainPanel{padding:20px;}
+#content #mainPanel .p_content{margin-bottom: 20px;}
+#content #mainPanel h3{padding:10px 0px;}
+#content #mainPanel .code_source{padding: 10px 15px;background: #fafafa;text-align: left;}
+#content #mainPanel .code_show{color: #0A8021;font: normal normal 1em/1.2em monospace;background: none;vertical-align: top;}
+#content #mainPanel .table_show{border: 1px solid #ccc;border-collapse: collapse;}
+#content #mainPanel .table_show th{height: 30px;line-height: 30px;font-size: 12px;text-align: left;padding: 0 6px 0 10px;border: 1px solid #ccc;background: #eef4fe;}
+#content #mainPanel .table_show td{height: 30px;font-size: 12px;line-height: 20px;padding: 0 6px 0 10px;border: 1px solid #ccc;}
+
+/*边框右侧统一样式*/
+#mainPanel{width:889px;float:right;margin-left:-2px;padding:20px;border-left:1px solid #d3d3d3;}
+#mainPanel iframe{width: 100%;border:0;display: inline;}
+
+/*页面底部样式 -----------------------------------------*/
+#footer{background-color:#F7F7F7;border-top:1px solid #ddd;}
+#promote {text-align:center;margin-top:6px;font-size:12px;color:#999;}
+#promote a{color:#999;}
+#promote a:hover{color:#db0303;}
+/*页面底部样式 -----------------------------------------*/
+
+
+#sidePanel{width:190px;cursor: pointer;z-index: 999;float:left;border-right: 1px solid #d3d3d3;}
+#sidePanel ul {margin-top: 10px;}
+#sidePanel ul li{display: block;padding:5px 0px;text-indent:10px;}
+#sidePanel ul li p{padding-left:10px;}
+#sidePanel ul li a{color:#000;line-height:31px;display:block;}
+#sidePanel ul li:hover{border-left:6px solid #6E778A;background-color:#f0f2f3;}
+#sidePanel ul li.selected {font-weight:bold;background-color:#EDEEF0;border-left:6px solid #3794E3;}
+
+#nav_list{position:fixed;right:0px;width:300px;max-height:700px;overflow :auto}
+#nav_list ul li{float:none;clear:both;text-align:left;text-decoration: none;margin-bottom: 7px;}
+#nav_list ul li a{color: #666;}
+
+table{
+    background-color: #fff;
+    color: #666;
+    border-width: 1px 0 0 1px;
+    border-style: solid;
+    border-color: #e6e6e6;
+}
+td {
+    cursor: default;
+    padding: 5px 0;
+    min-height: 20px;
+    line-height: 20px;
+    font-size: 14px;
+    border-width: 0 1px 1px 0;
+    border-style: solid;
+    border-color: #e6e6e6;
+}

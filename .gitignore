@@ -2,6 +2,7 @@
 .svn
 .idea
 .vscode
+.rebar
 
 ebin
 /log

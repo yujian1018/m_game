@@ -1,0 +1,26 @@
+enum lib_apps
+{
+    COMMON      = 100:common,       %公共函数
+    CACHE       = 101:cache,        %缓存
+    NETWORK     = 104:network,      %网络连接层
+    DB          = 105:db            %db服
+}
+
+enum apps
+{
+    NODE_TEST_FRAME     = -1:test_frame,  %测试节点
+    NODE_HTTP           = 1:http,         %web节点
+    NODE_GATE           = 2:gate,         %网关节点
+    NODE_OBJ            = 3:obj,          %游戏节点
+    NODE_FIGHT          = 4:fight,        %战斗节点
+
+    NODE_MGR            = 6:mgr,          %节点管理节点
+    NODE_PUSH           = 7:push,         %推送节点
+
+    NODE_GM             = 11:gm,          %gm工具节点
+    NODE_IM             = 12:im           %im服务器节点
+}
+
+enum ex_apps{
+    GLOBAL      = 201:global
+}

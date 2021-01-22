@@ -1,0 +1,14 @@
+{application, cache,
+    [
+        {description, ""},
+        {vsn, "1"},
+        {registered, []},
+        {applications, [
+            kernel,
+            stdlib
+        ]},
+        {mod, {cache_app, []}},
+        {env, [
+            {app_names, [cache]}
+        ]}
+    ]}.

@@ -1,0 +1,6 @@
+.vscode
+ebin
+.rebar
+_auto
+erl_crash.dump
+*.so

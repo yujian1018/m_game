@@ -1,0 +1,14 @@
+{application, common,
+    [
+        {description, ""},
+        {vsn, "1"},
+        {registered, []},
+        {applications, [
+            kernel,
+            stdlib
+        ]},
+        {env, [
+            {area_id, 1},   %区域id   最大值 8
+            {s_id, 1}       %server id 最大值1024
+        ]}
+    ]}.

@@ -1,0 +1,10 @@
+
+%% 协议 module file protonum
+
+
+all_proto[
+    json       %print
+]
+{
+    test_module     test_json_sproto     test    1     %登录
+}

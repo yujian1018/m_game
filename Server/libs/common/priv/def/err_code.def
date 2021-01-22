@@ -1,0 +1,98 @@
+%%%-------------------------------------------------------------------
+%%% @author yujian
+%%% @doc 错误码
+%%%-------------------------------------------------------------------
+
+%% 1-1000 通用错误码
+%% 1001-2000 http
+%% 2001-3000 gm
+%% 7001-8000 im
+
+%% 10001-20000 逻辑服错误码
+%% 20001-30000 战斗服错误码
+
+%% empty(空白)
+%% expired(超时)
+%% missing(缺失 缺少)
+%% require(必须)
+%% invalid(不合法)
+%% limit(限制)
+
+%% exit
+%% need
+%% found
+%% crash    服务异常
+%% unauthorized 未授权
+%% "MUST"（必须）
+%%"MUST NOT"（禁止）
+%%"REQUIRED"（需要）
+%%"SHALL"（将要）
+%%"SHALL NOT"（最好不要）,
+%%"SHOULD"（应该）
+%%"SHOULD NOT"（不应该）
+%%"RECOMMENDED"（推荐）
+%%"MAY"（可能）
+%% "OPTIONAL"（可选）
+
+enum err_code
+{
+% 版本
+    ERR_CRASH_SERVER                    = 0,    %无法连接服务器，请稍后再试
+    ERR_MAINTAIN_SYSTEM                 = 1,    %系统维护
+    ERR_UNAUTHORIZED_API                = 2,    %权限不足
+    ERR_NOTEXIT_VERSION                 = 3,    %不存在该版本
+    ERR_NEED_FORCE_UPDATE               = 4,    %需要强制更新
+    ERR_LIMIT_API                       = 5,    %限制频率
+    ERR_NOTFOUND_SERVICE                = 6,    %不存在服务，网络不畅通
+    ERR_CRASH_SERVICE                   = 7,    %异常服务
+    ERR_NOTFOUND_API                    = 8,    %不存在接口
+
+% 系统错误
+    ERR_NOTEXIT_PRO_DICT                = 51,   %不存在进程字典
+    ERR_EXIT_PRO_DICT                   = 52,   %已经存在进程字典
+    ERR_NOTEXIT_PROCESS                 = 53,   %不存在进程
+    ERR_EXIT_PROCESS                    = 54,   %已经存在进程
+    ERR_INVALID_TYPE                    = 55,   %非法类型
+    ERR_INVALID_CONVERT_TYPE            = 56,   %转换类型非法
+    ERR_INVALID_CHARS                   = 57,   %非法字符
+    ERR_INVALID_NATURAL_NUM             = 58,   %非法自然数
+    ERR_INVALID_INTEGER                 = 59,   %非法整数
+
+
+% 帐号
+    ERR_INVALID_PWD                     = 101,  %非法密码
+    ERR_EXIT_LOGIN                      = 102,  %账号已在其他设备登录
+    ERR_CLOSURE                         = 103,  %账户已被封号
+    ERR_TERMINATE                       = 104,  %被T下线,与服务器断开连接
+    ERR_LOGIN_TOKNE_OUTDATE             = 105,  %token失效，请重新登录
+    ERR_ONLINE                          = 106,  %玩家在线
+    ERR_PLAYER_OFFLINE                  = 107,  %玩家下线
+    ERR_NOT_ONLINE                      = 108,  %该玩家已离线
+    ERR_RE_ONLINE                       = 109,  %重复登陆
+    ERR_NO_ACCOUNT                      = 110,  %账户不存在
+    ERR_EXIT_ACCOUNT                    = 111,  %账户已经存在
+
+% 参数
+    ERR_ARG_ERROR                       = 201,   %参数不正确
+    ERR_CHANNEL_ID                      = 202,   %渠道不正确
+    ERR_NOT_IN_SIZE                     = 203,   %参数不在范围内
+    ERR_BAD_SIGN                        = 204,   %签名不正确
+
+    ERR_ILLEGAL_CHATS                   = 205,   %参数中拥有非法字符
+    ERR_SENSITIVE_CHARACTER             = 206,   %含有敏感字符
+    ERR_MAX_SIZE                        = 207,   %?KEY不能超过?ERR_MAX_SIZE个字符
+    ERR_MIN_SIZE                        = 208,   %?KEY不能少于?ERR_MIN_SIZE个字符
+    ERR_ATTR_NOT_ENOUGH_NUM             = 209,   %没有足够的数量
+    ERR_NOT_BINARY                      = 210,   %参数需要是字符串
+    ERR_CONFIG_NO_DATA                  = 211,   %没有配置信息
+    ERR_PAGE_MAX_SIZE                   = 212,   %页数超过最大限制
+    ERR_PAGE_SIZE_ERR                   = 213,   %页数需要大于等于0
+
+
+% 数据库
+    ERR_NO_THIS_DATA                    = 301,   %没有查询到该数据
+    ERR_EXEC_SQL_ERR                    = 302,   %执行sql出错
+    ERR_NO_MYSQL_POOL                   = 303   %没有找到数据库链接
+
+}
+
